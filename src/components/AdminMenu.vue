@@ -47,7 +47,8 @@
       </div>
       <button id="bu" type="submit" @click="getMenuFood">Submit</button>
     </fieldset>
-    <footer>&copy; Bavarian Bites 2022 powered by Adidas bmw</footer>
+    
+    
   </div>
 </template>
 <script>
@@ -67,11 +68,7 @@ export default {
       fieldType.splice(0, 1);
     },
     getMenuFood: function () {
-      //   console.log(this.foodTypes);
       this.foodTypes.map((item) => {
-        console.log(item);
-        // console.log(item.food,'hello')
-        //  console.log(item.price,'YES')
         const foodMenuu = { food: item.food, price: item.price };
         axios
           .post("/foodmenu", foodMenuu)
@@ -91,10 +88,10 @@ export default {
 .menu {
   max-width: 500px;
   padding: 10px 20px;
-  background: #F4F7F8;
+  background: #f4f7f8;
   margin: 10px auto;
   padding: 20px;
-  background: #F4F7F8;
+  background: #f4f7f8;
   border-radius: 8px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -119,10 +116,10 @@ export default {
 #name textarea,
 .menu textarea:focus,
 .menu select:focus {
-  background: #D2D9DD;
+  background: #d2d9dd;
 }
 .menu .number {
-  background: #1ABC9C;
+  background: #13bebe;
   color: #fff;
   height: 30px;
   width: 30px;
@@ -134,36 +131,33 @@ export default {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
   border-radius: 15px 15px 15px 0px;
 }
-/* .menu input[type="button"]
-.menu input[type="submit"] */
+
 #bu {
   position: relative;
   display: block;
   padding: 19px 39px 18px 39px;
   color: #fff;
   margin: 0 auto;
-  background: #1ABC9C;
+  background: #13bebe;
   font-size: 18px;
   text-align: center;
   font-style: normal;
   width: 100%;
-  border: 1px solid #16A085;
+  border: 1px solid #089696;
   border-width: 1px 1px 3px;
   margin-bottom: 10px;
   margin-top: 20px;
 }
-/* #price {
-  margin-left: 9px;
-} */
+
 .main-hr {
   width: 30%;
   border: none;
-  border-top: 1px solid #C3C3C3;
+  border-top: 1px solid #c3c3c3;
 }
 .icon-btn {
   width: 50px;
   height: 50px;
-  border: 1px solid #ECDFDF;
+  border: 1px solid #ecdfdf;
   background: rgb(228, 235, 233);
   opacity: 0.7;
   border-radius: 25px;
@@ -249,7 +243,7 @@ export default {
 #add {
   font-family: Geneva;
 }
-.menu {
+.menu { 
   font-family: Georgia, "Times New Roman", Times, serif;
   background: rgba(255, 255, 255, 0.1);
   border: none;
@@ -261,8 +255,8 @@ export default {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  background-color: #E8EEEF;
-  color: #8A97A0;
+  background-color: #e8eeef;
+  color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 30px;
@@ -280,8 +274,8 @@ export default {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  background-color: #E8EEEF;
-  color: #8A97A0;
+  background-color: #e8eeef;
+  color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 30px;
@@ -299,8 +293,8 @@ export default {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  background-color: #E8EEEF;
-  color: #8A97A0;
+  background-color: #e8eeef;
+  color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 30px;
@@ -308,5 +302,20 @@ export default {
 #first {
   border-style: dashed;
   width: 450px;
+}
+
+body {
+  background-image: url(".//img1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.mc{
+
+     font-family: myFirstFont;
+     color :blue;
+     opacity: 0.8;
+     
 }
 </style>

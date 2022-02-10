@@ -1,7 +1,6 @@
 <template>
-  <div id="nav">
-  </div>
-  <router-view/>
+  <div id="nav"></div>
+  <router-view />
 </template>
 
 <style>
@@ -14,7 +13,7 @@
 }
 
 #nav {
-  padding: 30px;
+  padding: 55px;
 }
 
 #nav a {
@@ -26,7 +25,7 @@
   color: #42b983;
 }
 body {
-  /* background-image: url("../public/img1.jpg"); */
+  background-image: url("../src/components/img1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
