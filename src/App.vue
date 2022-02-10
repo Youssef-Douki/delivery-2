@@ -1,7 +1,19 @@
+<script>
+import Sidebar from './components/sidebar/Sidebar'
+import { sidebarWidth } from '../src/components/sidebar/state'
+export default {
+  components: { Sidebar },
+  // setup() {
+  //   return { sidebarWidth }
+  // }
+}
+</script>
 <template>
   <div id="nav">
+    <Sidebar/>
+    <router-view/>
   </div>
-  <router-view/>
+  
 </template>
 
 <style>
