@@ -12,9 +12,9 @@ var signUp = function(req,res){
         if(err){
             res.status(500).send(err)
         }else if(result.length === 0) {
-            if(req.body.password.length>8 &&req.body.password.length<25 && req.body.password.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]/)){
-                const salt =   bcrypt.genSaltSync()
-                const hashedPaswword =  bcrypt.hashSync(req.body.password, salt)
+            if(req.body.password.length>8 && req.body.password.length<25 && req.body.password.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]/)){
+                const salt = bcrypt.genSaltSync()
+                const hashedPaswword = bcrypt.hashSync(req.body.password,salt)
                 db.query(`INSERT INTO restaurant (name,password,picture) Values ("${req.body.name}","${hashedPaswword}","${req.body.picture}")`,(err,result)=>{
                     if(err){
                         throw err
@@ -48,12 +48,12 @@ var login =(req,res)=>{
 addRestaurant=(req,res)=>{
     var params=[req.body.name,req.body.picture,req.body.description]
 esm = req.body.name
-var str="INSERT INTO restaurant (name , picture , description) VALUES (?,?,?)"
+var str="INSERT INTO restaurant (name, picture, description) VALUES (?,?,?)"
 db.query(str,params,(err,result)=>{
     err?console.log(err):res.status(200).send("restaurant cbon mawjoud")
 })
 }
-////////////////// menu  for
+////////////////// menu for
 addMenu=(req,res)=>{
     var params=[req.body.food_name,req.body.price]
     str=`insert into menu (food_name,price,restaurant_id) VALUES (?,?,(SELECT  restaurant_id from restaurant where name="${esm}"))`

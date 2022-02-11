@@ -99,7 +99,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 20px;
+  padding: 5px;
   min-height: 250px;
   
 }
@@ -159,7 +159,7 @@ body {
 /* CSS */
 .btn {
   align-items: center;
-  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  background-image: linear-gradient(135deg, #9e9e9e 40%, #9e9e9e);
   border: 0;
   border-radius: 10px;
   box-sizing: border-box;

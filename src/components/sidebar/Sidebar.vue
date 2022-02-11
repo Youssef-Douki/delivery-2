@@ -21,7 +21,7 @@ export default {
     </h1>
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Insert restaurant</SidebarLink>
+    <SidebarLink to="/LoginUser" icon="fas fa-columns">Insert restaurant</SidebarLink>
     <SidebarLink to="/analytics" icon="fas fa-chart-bar">insert your menu</SidebarLink>
     <SidebarLink to="/friends" icon="fas fa-users">analytique</SidebarLink>
     <SidebarLink to="/image" icon="fas fa-image">orders</SidebarLink>

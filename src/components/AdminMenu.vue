@@ -119,7 +119,7 @@ export default {
   background: #d2d9dd;
 }
 .menu .number {
-  background: #13bebe;
+  background: #acb6b6;
   color: #fff;
   height: 30px;
   width: 30px;
@@ -138,7 +138,7 @@ export default {
   padding: 19px 39px 18px 39px;
   color: #fff;
   margin: 0 auto;
-  background: #13bebe;
+  background: #12c094;
   font-size: 18px;
   text-align: center;
   font-style: normal;
@@ -176,7 +176,7 @@ export default {
   height: 4px;
   width: 10px;
   top: calc(50% - 2px);
-  background: red;
+  background: rgb(0, 255, 0)
 }
 .add-btn::after {
   right: 14px;
@@ -232,7 +232,7 @@ export default {
   width: 4px;
   margin-left: 10px;
   top: calc(50% - 10px);
-  background: red;
+  background: rgb(35, 185, 15);
   /* overflow: hidden; */
   margin: l;
 }
