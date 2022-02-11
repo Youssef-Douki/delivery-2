@@ -1,19 +1,19 @@
+//
 <script>
-import Sidebar from './components/sidebar/Sidebar'
-import { sidebarWidth } from '../src/components/sidebar/state'
+import Sidebar from "./components/sidebar/Sidebar";
+import { sidebarWidth } from "../src/components/sidebar/state";
 export default {
   components: { Sidebar },
   // setup() {
   //   return { sidebarWidth }
   // }
-}
+};
 </script>
 <template>
   <div id="nav">
-    <Sidebar/>
-    <router-view/>
+    <Sidebar />
+    <router-view />
   </div>
-  
 </template>
 
 <style>
@@ -31,14 +31,14 @@ export default {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: black;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: black;
 }
 body {
-  background-image: url("../src/components/img1.jpg");
+  background-image: url("../src/components/img2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
