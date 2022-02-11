@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Login from "../components/Login.vue"
-import Cardrestaurant from "../components/Cardrestaurant.vue"
+// import Cardrestaurant from "../components/Cardrestaurant.vue"
 import AdminMenu from "../components/AdminMenu.vue"
 const routes = [
   {
@@ -12,12 +12,13 @@ const routes = [
   {
     path: '/menu',
     name: 'menu',
-    component: Cardrestaurant
-  }, {
-    path: '/menu/:id',
-    name: 'AdminMenu',
     component: AdminMenu
   }
+  //  {
+  //   path: '/menu/:id',
+  //   name: 'AdminMenu',
+  //   component: AdminMenu
+  // }
 ]
 
 const router = createRouter({

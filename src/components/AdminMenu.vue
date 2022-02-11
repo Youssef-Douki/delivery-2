@@ -71,7 +71,7 @@ export default {
       this.foodTypes.map((item) => {
         const foodMenuu = { food: item.food, price: item.price };
         axios
-          .post("/foodmenu", foodMenuu)
+          .post("http://localhost:5000/admin/foodmenu", foodMenuu)
           .then((response) => console.log(response));
       });
     },

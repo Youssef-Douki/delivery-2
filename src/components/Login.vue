@@ -66,8 +66,7 @@ import axios from 'axios'
 <style lang="scss" scoped>
 .cont{
       position: absolute;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin: 7% 25%;
 }
   .container {
     position: relative;
@@ -93,7 +92,7 @@ import axios from 'axios'
       left: -100%;
       height: 100%;
       width: 200%;
-      background: linear-gradient(to bottom right, #57919b, #1ac3e0);
+      background: linear-gradient(to bottom right, #373c72, #f53d3d);
       color: #fff;
       transform: translateX(0);
       transition: transform .5s ease-in-out;
@@ -135,7 +134,7 @@ import axios from 'axios'
   button {
     border-radius: 20px;
     border: 1px solid #484d4081;
-    background-color: #9bd2db2f;
+    background-color: #aa9f622f;
     color: rgba(255, 255, 255, 0.411);
     font-size: 1rem;
     font-weight: bold;
@@ -166,7 +165,7 @@ import axios from 'axios'
     width: calc(50% - 120px);
     height: calc(100% - 180px);
     text-align: center;
-    background: linear-gradient(to bottom, #efefef9f, #ccc);
+    background: linear-gradient(to bottom, #ecce97, #928780);
     transition: all .5s ease-in-out;
     div {
       font-size: 1rem;

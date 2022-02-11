@@ -20,11 +20,12 @@ export default {
       <span v-else>ADMIN DASHBOARD</span>
     </h1>
 
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Insert restaurant</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">insert your menu</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">analytique</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">orders</SidebarLink>
+    <!-- <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink> -->
+    <!-- <SidebarLink to="/dashboard" icon="fas fa-columns">Insert restaurant</SidebarLink> -->
+    <SidebarLink to="/menu" icon="fas fa-chart-bar">insert your menu</SidebarLink>
+    <SidebarLink to="/analytique" icon="fas fa-users">analytique</SidebarLink>
+    <SidebarLink to="/orders" icon="fas fa-image">orders</SidebarLink>
+    <SidebarLink to="/" icon="fas fa-image">Log out</SidebarLink>
 
     <span
       class="collapse-icon"
@@ -45,6 +46,10 @@ export default {
 </style>
 
 <style scoped>
+.bottom{
+  position: absolute;
+  bottom : 10px
+}
 .sidebar {
   color: white;
   background-color: var(--sidebar-bg-color);
