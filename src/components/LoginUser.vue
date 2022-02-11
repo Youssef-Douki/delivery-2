@@ -28,7 +28,6 @@
           <input type="text" placeholder="email" />
           <input type="password" placeholder="password" />
           <input type="number" placeholder="phoneNumber" />
-          <input type="number" placeholder="points" />
           <input id="bavaria" type="file" placeholder="profilePicture" />
         </div>
         <router-link :to="{ name: path }"

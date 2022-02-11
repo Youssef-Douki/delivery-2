@@ -27,9 +27,9 @@
           name="password"
           type="password"
           placeholder="Password"
-          @input="change"
+          @change="change"
         />
-        <input @input="changefile" name="picture" type="file" />
+        <input @change="changefile" name="picture" type="file" />
         <router-link :to="{ name: path }"
           ><button @click="signup">Sign Up</button></router-link
         >
@@ -41,13 +41,13 @@
           name="loginName"
           type="text"
           placeholder="Name"
-          @input="change"
+          @change="change"
         />
         <input
           name="loginPassword"
           type="password"
           placeholder="Password"
-          @input="change"
+          @change="change"
         />
         <a href="#">Forgot your password?</a>
         <router-link :to="{ name: path }"
@@ -120,8 +120,8 @@ export default {
         .then((response) => {
           console.log(response.data);
           response.data === "nice"
-            ? (this.path = "For JOU to link")
-            : (this.path = "For JOU to link");
+            ? (this.path = "menu")
+            : (this.path = "Login")
         })
         .catch((err) => {
           console.log(err);

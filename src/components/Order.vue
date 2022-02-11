@@ -2,6 +2,7 @@
 
 <template>
   <div class="container">
+    <Sidebar />
     <h2>Order food</h2>
     <ul class="table">
       <li class="table-header">
@@ -25,6 +26,13 @@
     </ul>
   </div>
 </template>
+<script>
+import Sidebar from "../components/sidebar/Sidebar.vue";
+export default {
+  components: { Sidebar },
+};
+</script>
+
 <style lang="scss" scoped>
 body {
   font-family: "lato", sans-serif;
@@ -100,19 +108,5 @@ h2 {
       }
     }
   }
-}
-//////////: button
-#btn {
-  background-color: DodgerBlue; /* Blue background */
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 12px 16px; /* Some padding */
-  font-size: 16px; /* Set a font size */
-  cursor: pointer; /* Mouse pointer on hover */
-}
-
-/* Darker background on mouse-over */
-#btn:hover {
-  background-color: RoyalBlue;
 }
 </style>
