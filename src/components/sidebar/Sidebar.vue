@@ -20,12 +20,14 @@ export default {
       <span v-else>Restauranti</span>
     </h1>
 
+
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
     <SidebarLink to="/dashboard" icon="fas fa-columns">Insert restaurant</SidebarLink>
     <SidebarLink to="/analytics" icon="fas fa-chart-bar">insert your menu</SidebarLink>
     <SidebarLink to="/friends" icon="fas fa-users">analytique</SidebarLink>
     <SidebarLink to="/analyze" icon="fas fa-image">orders</SidebarLink>
         <SidebarLink to="/cart" icon="fas fa-image">cart</SidebarLink>
+
 
 
     <span
@@ -46,7 +48,7 @@ export default {
 }
 .sidebar {
   color: white;
-  background-color:white;
+  background-color:#f0e5d5;
   float: left;
   position: fixed;
   z-index: 1;
