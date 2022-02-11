@@ -17,7 +17,7 @@ export default {
         <div>V</div>
         <div>S</div>
       </span>
-      <span v-else>My rest</span>
+      <span v-else>Restauranti</span>
     </h1>
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
@@ -38,18 +38,15 @@ export default {
   </div>
 </template>
 
-<style>
-:root {
-  --sidebar-bg-color: #dce0de;
-  --sidebar-item-hover: #101110;
-  --sidebar-item-active: #c0bcce;
-}
-</style>
 
 <style scoped>
+.bottom{
+  position: absolute;
+  bottom : 10px
+}
 .sidebar {
   color: white;
-  background-color: var(--sidebar-bg-color);
+  background-color:white;
   float: left;
   position: fixed;
   z-index: 1;
@@ -63,6 +60,9 @@ export default {
 }
 .sidebar h1 {
   height: 2.5em;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:black
 }
 .collapse-icon {
   position: absolute;

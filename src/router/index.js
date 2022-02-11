@@ -15,10 +15,6 @@ const routes = [
   {
     path: '/menu',
     name: 'menu',
-    component: Cardrestaurant
-  }, {
-    path: '/menu/:id',
-    name: 'AdminMenu',
     component: AdminMenu
   },
   {
@@ -29,6 +25,11 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart
+  },
+   {
+    path: '/user/menu',
+    name: 'Cardrestaurant',
+    component: Cardrestaurant
   }
 ]
 

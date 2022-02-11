@@ -71,7 +71,7 @@ export default {
       this.foodTypes.map((item) => {
         const foodMenuu = { food: item.food, price: item.price };
         axios
-          .post("/foodmenu", foodMenuu)
+          .post("http://localhost:5000/admin/foodmenu", foodMenuu)
           .then((response) => console.log(response));
       });
     },
@@ -138,7 +138,7 @@ export default {
   padding: 19px 39px 18px 39px;
   color: #fff;
   margin: 0 auto;
-  background: #13bebe;
+  background: #5a585f;
   font-size: 18px;
   text-align: center;
   font-style: normal;
@@ -238,10 +238,11 @@ export default {
 }
 #ro {
   font-family: Century Gothic;
-  color: orangered;
+  color: black;
 }
 #add {
   font-family: Geneva;
+  color: black;
 }
 .menu { 
   font-family: Georgia, "Times New Roman", Times, serif;

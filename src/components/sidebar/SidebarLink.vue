@@ -46,14 +46,14 @@ export default {
   padding: 0.4em;
   border-radius: 0.25em;
   height: 1.5em;
-  color: white;
+  color: black;
   text-decoration: none;
 }
 .link:hover {
-  background-color: var(--sidebar-item-hover);
+  background-color:#5a585f;
 }
 .link.active {
-  background-color: var(--sidebar-item-active);
+  background-color: #5a585b;
 }
 .link .icon {
   flex-shrink: 0;
