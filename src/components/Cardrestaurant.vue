@@ -12,16 +12,16 @@
           <span class="tag tag-teal">{{datas.name}}</span>
           <h4 >description</h4>
           <p>
-            <!-- {{datas.description}} -->
+            {{datas.description}}
           </p>
           <div class="user">
-            <img v-bind:src="datas.picture"  />
+            <!-- <img v-bind:src="datas.profile"  />
             <div class="user-info">
               <h5>Jerome Walton</h5>
              
-            </div>
+            </div> -->
           </div>
-          <router-link :to="{name:'AdminMenu',params:{id : datas.name}}"> <button class="btn">Menu</button></router-link>
+          <!-- <router-link :to="{name:'AdminMenu',params:{id : datas.name}}"> <button class="btn">Menu</button></router-link> -->
         </div>
       </div>
      </div>
@@ -80,9 +80,10 @@ import axios from 'axios'
  
   
   
-</script>
+// </script>
+
 // <style  lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
   
 * {
   box-sizing: border-box;
@@ -111,28 +112,27 @@ body {
 }
 .card-header img {
   width: 100%;
-  height: 200px;
+  height: 270px;;
   object-fit: cover;
 }
 .card-body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 20px;
+  
   min-height: 250px;
   
 }
 .tag {
-  background-color: #ccc;
-  color: #fff;
-  border-radius: 50px;
-  font-size: 12px;
-  margin: 0;
-  padding: 4px 50px;
-  text-transform: uppercase;
+color: #fff;
+    font-size: 13px;
+    padding: 4px 143px;
+    text-transform: uppercase;
+    width: 100%;
+    font-weight: bold;
 }
 .tag-teal {
-  background-color: #92d4e4;
+  background-color: #5a585f;
 }
 .tag-purple {
   background-color: #3d1d94;

@@ -4,6 +4,7 @@ import Login from "../components/Login.vue"
 import Cardrestaurant from "../components/Cardrestaurant.vue"
 import AdminMenu from "../components/AdminMenu.vue"
 import Order from "../components/Order.vue"
+import Cart from "../components/Cart.vue"
 
 const routes = [
   {
@@ -14,16 +15,21 @@ const routes = [
   {
     path: '/menu',
     name: 'menu',
-    component: Cardrestaurant
-  }, {
-    path: '/menu/:id',
-    name: 'AdminMenu',
     component: AdminMenu
   },
   {
     path: '/analyze',
     name: 'Order',
     component: Order
+  }, {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
+  },
+   {
+    path: '/user/menu',
+    name: 'Cardrestaurant',
+    component: Cardrestaurant
   }
 ]
 

@@ -12,6 +12,7 @@ CREATE TABLE user (
   profilePicture varchar(255),
   PRIMARY KEY (id)
 );
+
 CREATE TABLE restaurant (
   restaurant_id int NOT NULL AUTO_INCREMENT,
   name varchar(50),    
@@ -29,5 +30,5 @@ CREATE TABLE menu (
   FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id)  
 );
 /* excute schema  */
-/* 
+/* mysql -u root -p <server/database_mysql/schema.sql
  */

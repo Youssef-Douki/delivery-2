@@ -17,7 +17,7 @@ export default {
         <div>V</div>
         <div>S</div>
       </span>
-      <span v-else>My rest</span>
+      <span v-else>Restauranti</span>
     </h1>
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
@@ -25,6 +25,8 @@ export default {
     <SidebarLink to="/analytics" icon="fas fa-chart-bar">insert your menu</SidebarLink>
     <SidebarLink to="/friends" icon="fas fa-users">analytique</SidebarLink>
     <SidebarLink to="/analyze" icon="fas fa-image">orders</SidebarLink>
+        <SidebarLink to="/cart" icon="fas fa-image">cart</SidebarLink>
+
 
     <span
       class="collapse-icon"
@@ -36,18 +38,15 @@ export default {
   </div>
 </template>
 
-<style>
-:root {
-  --sidebar-bg-color: #2f855a;
-  --sidebar-item-hover: #38a169;
-  --sidebar-item-active: #276749;
-}
-</style>
 
 <style scoped>
+.bottom{
+  position: absolute;
+  bottom : 10px
+}
 .sidebar {
   color: white;
-  background-color: var(--sidebar-bg-color);
+  background-color:white;
   float: left;
   position: fixed;
   z-index: 1;
@@ -61,6 +60,9 @@ export default {
 }
 .sidebar h1 {
   height: 2.5em;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:black
 }
 .collapse-icon {
   position: absolute;
