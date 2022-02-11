@@ -3,18 +3,19 @@
     
 
 <div class="container" >
-   <div class="cont" v-for="datas in data" :key="datas.name">
-      <div class="card">
+   <div class="cont" v-for="datas in this.data" :key="datas">
+      <router-link :to="{name : path , params:{name : pathName}}"><div  @click="goToMenu" :name="datas.name" class="card">
         <div class="card-header">
-          <img  v-bind:src="datas.picture" />
+          <img v-bind:src="datas.picture" />
         </div>
         <div class="card-body">
-          <span class="tag tag-teal">{{datas.name}}</span>
-          <h4 >description</h4>
+          <span class="tag tag-teal">{{ datas.name }}</span>
+          <h4>description</h4>
           <p>
-            {{datas.description}}
+            {{ datas.description }}
           </p>
           <div class="user">
+            
             <!-- <img v-bind:src="datas.profile"  />
             <div class="user-info">
               <h5>Jerome Walton</h5>
@@ -23,17 +24,9 @@
           </div>
           <!-- <router-link :to="{name:'AdminMenu',params:{id : datas.name}}"> <button class="btn">Menu</button></router-link> -->
         </div>
-      </div>
+      </div></router-link>
      </div>
-    </div>
-
-   
-  
-  
-
-  
-
-
+     <div>
 
 </template>
 <script>
@@ -58,20 +51,47 @@
   // }
   
 import axios from 'axios'
+
   export default {
+  
     
+  
     data(){
       return {
-        data:[]
+        data:[],
+        name :"",
+        path :"",
+        pathName : "",
+        
+        
       }
     },
     created(){
     axios.get("http://localhost:5000/user/restaurant")
-            .then(({data})=>{this.data = data})
+            .then((data)=>{this.data = data.data
+            })
           .catch(error => {
           
           console.error("There was an error!", error);
            });
+    },methods:{
+      goToMenu(e){
+        this.name = e.path[0].childNodes[0].data ||e.path[0].childNodes[0].childNodes[0].data
+        axios.get(`http://localhost:5000/user/menu/${this.name}`)
+        .then(response=>{
+          if(response.data.length!==0){
+            // console.log(response.data)
+            this.path = 'MenuOfRestaurant';
+            this.pathName = this.name
+           
+            localStorage.setItem("prop",JSON.stringify( this.name))
+            
+          }
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+      }
     }
   }
 
@@ -80,11 +100,9 @@ import axios from 'axios'
  
   
   
-// </script>
+</script>
+<style lang="scss" scoped>
 
-// <style  lang="scss" scoped>
- @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
-  
 * {
   box-sizing: border-box;
 }
@@ -97,9 +115,9 @@ body {
   height: 100vh;
   margin: 0;
 }
-.cont{
+.cont {
   width: 30%;
-  height:50%;
+  height: 50%;
 }
 .card {
   background-color: #fff;
@@ -107,29 +125,28 @@ body {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 400px;
-  height:500px;
+  height: 500px;
   // margin-right: -100px;
 }
 .card-header img {
   width: 100%;
-  height: 270px;;
+  height: 270px;
   object-fit: cover;
 }
 .card-body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  
+
   min-height: 250px;
-  
 }
 .tag {
-color: #fff;
-    font-size: 13px;
-    padding: 4px 143px;
-    text-transform: uppercase;
-    width: 100%;
-    font-weight: bold;
+  color: #fff;
+  font-size: 13px;
+  padding: 4px 143px;
+  text-transform: uppercase;
+  width: 100%;
+  font-weight: bold;
 }
 .tag-teal {
   background-color: #5a585f;
@@ -173,12 +190,10 @@ color: #fff;
   }
 }
 
-
-
 /* CSS */
 .btn {
   align-items: center;
-  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  background-image: linear-gradient(135deg, #9e9e9e 40%, #9e9e9e);
   border: 0;
   border-radius: 10px;
   box-sizing: border-box;
@@ -186,12 +201,12 @@ color: #fff;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  font-family: "Codec cold",sans-serif;
+  font-family: "Codec cold", sans-serif;
   font-size: 16px;
   font-weight: 700;
   height: 54px;
   justify-content: center;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   line-height: 1;
   max-width: 100%;
   padding-left: 20px;
@@ -203,7 +218,7 @@ color: #fff;
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-left: 280px;
-  margin-bottom:90px;
+  margin-bottom: 90px;
 }
 
 .btn:active {
@@ -219,8 +234,8 @@ color: #fff;
 }
 
 .btn:hover span {
-  transform: scale(.9);
-  opacity: .75;
+  transform: scale(0.9);
+  opacity: 0.75;
 }
 
 @media screen and (max-width: 991px) {
@@ -233,16 +248,14 @@ color: #fff;
     line-height: 50px;
   }
 }
-.container{
-   display: grid;
-grid-template-columns: repeat(3, 0.25fr);
-grid-template-rows: repeat(9, 0fr);
-grid-column-gap: 10px;
-grid-row-gap: 10px;
-    margin-left: 19%;
-    margin: right 10%;
-    margin-top : 8%
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 0.25fr);
+  grid-template-rows: repeat(9, 0fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  margin-left: 19%;
+  margin: right 10%;
+  margin-top: 8%;
 }
-
-
 </style>
