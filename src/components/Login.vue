@@ -18,9 +18,9 @@
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your email for registration</div>
-        <input v-model="name" type="text" placeholder="Name" />
-        <input v-model="password" type="password" placeholder="Password" />
-          <input v-model="picture"  type="text"  />
+        <input name="name" type="text" placeholder="Name" @input="change" />
+        <input name="password" type="password" placeholder="Password" @input="change"/>
+          <input @input="changefile"  name="picture"  type="file"  />
         <router-link  :to="{name:path}"><button @click="signup">Sign Up</button></router-link>
       </form>
       <form class="sign-in" action="#">
@@ -37,6 +37,7 @@
 
 <script>
 import axios from 'axios'
+import FormData from "form-data"
   export default {
     data: () => {
       return {
@@ -48,15 +49,33 @@ import axios from 'axios'
       }
       
     },methods:{
-      signup() {
+      changefile(e){
+        this.picture=e.target.files[0]
+        const form = new FormData()
+        form.append("file",this.picture)
+        form.append("upload_preset","bpnhlkro")
+        axios.post("https://api.cloudinary.com/v1_1/dhgzyelo6/image/upload",form).then(response=>{
+          this.picture=response.data.secure_url
+        })
+      },
+      change(e){
+        this[e.target.name]=e.target.value
+      },
+      signup(e) {
         const admin = {name : this.name ,password : this.password,picture : this.picture }
+        e.preventDefault()
+        
             // POST request using axios with error handling
-        axios.post("http://localhost:5000/admin/signup",admin)
-            .then(response => response.data == "nice" ? this.path = "menu" : this.path = "Login")
+          axios.post("http://localhost:5000/admin/signup",admin)
+            .then(response => {
+              localStorage.setItem(admin,JSON.stringify(admin))
+              response.data == "nice" ? this.path = "menu" : this.path = "Login"})
           .catch(error => {
           this.errorMessage = error.message;
           console.error("There was an error!", error);
            });
+          
+        
         
   
 }
