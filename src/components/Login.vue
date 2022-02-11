@@ -46,6 +46,7 @@ import axios from 'axios'
         path : "Login",
         signUp: false
       }
+      
     },methods:{
       signup() {
         const admin = {name : this.name ,password : this.password,picture : this.picture }

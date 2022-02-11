@@ -1,4 +1,4 @@
-<script>
+// <script>
 import Sidebar from './components/sidebar/Sidebar'
 import { sidebarWidth } from '../src/components/sidebar/state'
 export default {
@@ -9,9 +9,10 @@ export default {
 }
 </script>
 <template>
-  <div id="nav">
+  <div id="nav">  
     <Sidebar/>
     <router-view/>
+    
   </div>
   
 </template>
@@ -26,7 +27,7 @@ export default {
 }
 
 #nav {
-  padding: 30px;
+  padding: 55px;
 }
 
 #nav a {
@@ -38,7 +39,7 @@ export default {
   color: #42b983;
 }
 body {
-  /* background-image: url("../public/img1.jpg"); */
+  background-image: url("../src/components/img1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
