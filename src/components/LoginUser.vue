@@ -32,9 +32,18 @@
       <form class="sign-in" action="#">
         <h2>Log In</h2>
         <div>Use your account</div>
-        <input type="text" placeholder="Name" />
-        <input type="password" placeholder="Password" />
-        <a href="#">Forgot your password?</a>
+        <div id="Munich">
+          <input type="text" placeholder="firstName" />
+          <input type="text" placeholder="lastName" />
+          <input type="text" placeholder="email" />
+          <input type="password" placeholder="password" />
+          <input type="number" placeholder="phoneNumber" />
+          <input type="number" placeholder="points" />
+          <input id="bavaria" type="file" placeholder="profilePicture" />
+        </div>
+        <label id="for">
+          <a href="#">Forgot your password?</a>
+        </label>
         <router-link to="/menu"><button>Log in</button></router-link>
       </form>
     </div>
@@ -46,29 +55,73 @@ import axios from "axios";
 export default {
   data: () => {
     return {
-      name: "",
+      firstName: "",
+      lastName: "",
+      email: "",
       password: "",
-      picture: "",
-      path: "Login",
+      phoneNumber: "",
+      points: "",
+      profilePicture: "",
+      path: "LoginUser",
       signUp: false,
+      loginPasswordUser:"",
+      loginNameUser:""
     };
   },
   methods: {
-    signup() {
-      const admin = {
-        name: this.name,
-        password: this.password,
-        picture: this.picture,
-      };
-      // POST request using axios with error handling
+    changefile(e) {
+      this.pictureUser = e.target.files[0];
+      const formUser = new FormData();
+      form.append("file", this.pictureUser);
+      form.append("upload_preset", "bpnhlkro");
       axios
-        .post("http://localhost:5000/admin/signup", admin)
-        .then((response) =>
-          response.data == "nice" ? (this.path = "menu") : (this.path = "Login")
-        )
+        .post("https://api.cloudinary.com/v1_1/dhgzyelo6/image/upload", formUser)
+        .then((response) => {
+          this.pictureUser = response.data.secure_url;
+        });
+    },
+    change(e) {
+      this[e.target.firstName] = e.target.value;
+    },
+    signup() {
+      const user = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        password: this.password,
+        points: this.points,
+        profilePicture: this.profilePicture,
+      };
+// POST request using axios with error handling
+      axios
+        .post("http://localhost:5000/user/signupUser", user)
+        .then((response) => {
+          localStorage.setItem(user, JSON.stringify(user));
+          response.data === "nice"
+            ? (this.path = "menu")
+            : (this.path = "Login");
+        })
         .catch((error) => {
           this.errorMessage = error.message;
           console.error("There was an error!", error);
+        });
+    },
+    logIn() {
+      const user = {
+        loginName: this.loginNameUser,
+        loginPassword: this.loginPasswordUser,
+      };
+
+      axios
+        .post("http://localhost:5000/user/loginUser", user)
+        .then((response) => {
+          console.log(response.data);
+          response.data === "nice"
+            ? (this.path = "menu")
+            : (this.path = "Login");
+        })
+        .catch((err) => {
+          console.log(err);
         });
     },
   },
@@ -78,8 +131,7 @@ export default {
 <style lang="scss" scoped>
 .cont {
   position: absolute;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin: 7% 25%;
 }
 .container {
   position: relative;
@@ -104,7 +156,7 @@ export default {
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to bottom right, #57919b, #1ac3e0);
+    background: linear-gradient(to bottom right, #e3e0db, #da050b);
     color: #fff;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
@@ -146,7 +198,7 @@ a {
 button {
   border-radius: 20px;
   border: 1px solid #484d4081;
-  background-color: #9bd2db2f;
+  background-color: #aa9f622f;
   color: rgba(255, 255, 255, 0.411);
   font-size: 1rem;
   font-weight: bold;
@@ -177,7 +229,7 @@ form {
   width: calc(50% - 120px);
   height: calc(100% - 180px);
   text-align: center;
-  background: linear-gradient(to bottom, #efefef9f, #ccc);
+  background: linear-gradient(to bottom, #ecce97, #fee9d7);
   transition: all 0.5s ease-in-out;
   div {
     font-size: 1rem;
@@ -244,5 +296,14 @@ form {
     opacity: 1;
     z-index: 10;
   }
+}
+
+#Munich {
+  padding-bottom: 0.3px;
+  margin-bottom: -25px;
+}
+
+#for {
+  margin-top: 25px;
 }
 </style>
