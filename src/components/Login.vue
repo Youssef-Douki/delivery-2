@@ -18,18 +18,18 @@
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your email for registration</div>
-        <input v-model="name" type="text" placeholder="Name" />
-        <input v-model="password" type="password" placeholder="Password" />
-          <input v-model="picture"  type="text"  />
+        <input name="name" type="text" placeholder="Name" @input="change" />
+        <input name="password" type="password" placeholder="Password" @input="change"/>
+          <input @input="changefile"  name="picture"  type="file"  />
         <router-link  :to="{name:path}"><button @click="signup">Sign Up</button></router-link>
       </form>
       <form class="sign-in" action="#">
         <h2>Log In</h2>
         <div>Use your account</div>
-        <input type="text" placeholder="Name" />
-        <input type="password" placeholder="Password" />
+        <input name="loginName" type="text" placeholder="Name" @input="change" />
+        <input name="loginPassword" type="password" placeholder="Password" @input="change" />
         <a href="#">Forgot your password?</a>
-        <router-link to="/menu"><button>Log in</button></router-link>
+        <router-link :to="{name:path}"><button @click="logIn">Log in</button></router-link>
       </form>
     </div>
   </article>
@@ -37,28 +37,59 @@
 
 <script>
 import axios from 'axios'
+import FormData from "form-data"
   export default {
     data: () => {
       return {
         name: "",
         password:"",
         picture:"",
-        path : "Login",
-        signUp: false
+        path : 'Login',
+        signUp: false,
+        loginPassword:"",
+        loginName:""
       }
+      
     },methods:{
+      changefile(e){
+        this.picture=e.target.files[0]
+        const form = new FormData()
+        form.append("file",this.picture)
+        form.append("upload_preset","bpnhlkro")
+        axios.post("https://api.cloudinary.com/v1_1/dhgzyelo6/image/upload",form).then(response=>{
+          this.picture=response.data.secure_url
+        })
+      },
+      change(e){
+        this[e.target.name]=e.target.value
+      },
       signup() {
-        const admin = {name : this.name ,password : this.password,picture : this.picture }
+        const admin = {name : this.name ,password : this.password , picture : this.picture }
+        
+        
             // POST request using axios with error handling
-        axios.post("http://localhost:5000/admin/signup",admin)
-            .then(response => response.data == "nice" ? this.path = "menu" : this.path = "Login")
+          axios.post("http://localhost:5000/admin/signup",admin)
+            .then(response => {
+              localStorage.setItem(admin,JSON.stringify(admin));
+              response.data === "nice" ? this.path = 'menu' : this.path = 'Login'})
           .catch(error => {
           this.errorMessage = error.message;
           console.error("There was an error!", error);
            });
+      },
+      logIn(){
+        const admin ={loginName:this.loginName,loginPassword: this.loginPassword}
         
-  
-}
+
+        axios.post("http://localhost:5000/admin/login",admin)
+        .then(response=>{
+          console.log(response.data)
+          response.data === "nice" ? this.path = 'menu' : this.path = 'Login'
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+      }
     }
   }
 </script>
@@ -66,8 +97,7 @@ import axios from 'axios'
 <style lang="scss" scoped>
 .cont{
       position: absolute;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin: 7% 25%;
 }
   .container {
     position: relative;
@@ -93,7 +123,7 @@ import axios from 'axios'
       left: -100%;
       height: 100%;
       width: 200%;
-      background: linear-gradient(to bottom right, #57919b, #1ac3e0);
+      background: linear-gradient(to bottom right, #e3e0db, #da050b);
       color: #fff;
       transform: translateX(0);
       transition: transform .5s ease-in-out;
@@ -135,7 +165,7 @@ import axios from 'axios'
   button {
     border-radius: 20px;
     border: 1px solid #484d4081;
-    background-color: #9bd2db2f;
+    background-color: #aa9f622f;
     color: rgba(255, 255, 255, 0.411);
     font-size: 1rem;
     font-weight: bold;
@@ -166,7 +196,7 @@ import axios from 'axios'
     width: calc(50% - 120px);
     height: calc(100% - 180px);
     text-align: center;
-    background: linear-gradient(to bottom, #efefef9f, #ccc);
+    background: linear-gradient(to bottom, #ecce97, #fee9d7);
     transition: all .5s ease-in-out;
     div {
       font-size: 1rem;

@@ -1,6 +1,6 @@
 var db =require('../database_mysql')
 const bcrypt = require("bcrypt")
-
+var esm = ""
 var getALL=function(req,res){
     db.query("SELECT * FROM restaurant ",(err,result)=>{
     err?res.status(500).send(err):res.status(200).send(result)
@@ -8,6 +8,7 @@ var getALL=function(req,res){
 }
 
 var signUp = function(req,res){
+    esm = req.body.name
     db.query(`SELECT * From restaurant where name = "${req.body.name}" `,(err,result)=>{
         if(err){
             res.status(500).send(err)
@@ -31,13 +32,14 @@ var signUp = function(req,res){
 
 
 var login =(req,res)=>{
-    db.query(`SELECT * FROM user WHERE name = '${req.body.loginName}';`,(err,result)=>{
+    esm = req.body.loginName
+    db.query(`SELECT * FROM restaurant WHERE name = '${req.body.loginName}';`,(err,result)=>{
         if(err){
             throw err
         }else{
             var pass = result[0]
             if(bcrypt.compareSync(req.body.loginPassword,pass.password)){
-                res.send(result)
+                res.send("nice")
             }else{
                 res.send('incorrect')
             }
@@ -45,27 +47,27 @@ var login =(req,res)=>{
     })
 }
 
-addRestaurant=(req,res)=>{
-    var params=[req.body.name,req.body.picture,req.body.description]
-esm = req.body.name
-var str="INSERT INTO restaurant (name , picture , description) VALUES (?,?,?)"
-db.query(str,params,(err,result)=>{
-    err?console.log(err):res.status(200).send("restaurant cbon mawjoud")
-})
-}
+// addRestaurant=(req,res)=>{
+//     var params=[req.body.name,req.body.picture,req.body.description]
+// esm = req.body.name
+// var str="INSERT INTO restaurant (name , picture , description) VALUES (?,?,?)"
+// db.query(str,params,(err,result)=>{
+//     err?console.log(err):res.status(200).send("restaurant cbon mawjoud")
+// })
+// }
 ////////////////// menu  for
-addMenu=(req,res)=>{
-    var params=[req.body.food_name,req.body.price]
+var addMenu=(req,res)=>{
+    var params=[req.body.food,req.body.price]
     str=`insert into menu (food_name,price,restaurant_id) VALUES (?,?,(SELECT  restaurant_id from restaurant where name="${esm}"))`
     db.query(str,params,(err,result)=>{
         err?console.log(err):res.status(200).send("menu rtzad")
     })
 }
  ////////// get all menu for on restaurant //:
- getMenuOneRestaurant=(req,res)=>{
+var getMenuOneRestaurant=(req,res)=>{
      var str=`select * from menu where restaurant_id =(select restaurant_id from restaurant where name = "${esm}")`
      db.query(str,(err,result)=>{
          err?console.log(err):res.send(result)
      })
  }
-module.exports={getALL,signUp,login,addRestaurant,addMenu,getMenuOneRestaurant}
+module.exports={getALL,signUp,login,addMenu,getMenuOneRestaurant}
