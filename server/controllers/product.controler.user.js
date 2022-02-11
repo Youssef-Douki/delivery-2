@@ -19,7 +19,7 @@ var signUpUser = function (req, res) {
           const salt = bcrypt.genSaltSync();
           const hashedPaswword = bcrypt.hashSync(req.body.password, salt);
           db.query(
-            `INSERT INTO user (firstName,lastName ,email,password,phoneNumber,points,profilePicture) Values ("${req.body.firstName}","${hashedPaswword}","${req.body.profilePicture}")`,
+            `INSERT INTO user (firstName,lastName ,email,password,phoneNumber,profilePicture) Values ("${req.body.firstName}","${hashedPaswword}","${req.body.profilePicture}")`,
             (err, result) => {
               if (err) {
                 throw err;
@@ -55,13 +55,16 @@ var loginUser = (req, res) => {
   );
 };
 
-var getALLRestaurant = function (req, res) {
-  db.query(
-    "SELECT name,picture,description FROM restaurant ",
-    (err, result) => {
-      err ? res.status(500).send(err) : res.status(200).send(result);
-    }
-  );
-};
+var getALLRestaurant=function(req,res){
+    db.query("SELECT name,picture,description FROM restaurant ",(err,result)=>{
+    err?res.status(500).send(err):res.status(200).send(result)
+    })
+}
 
-module.exports = { getALLRestaurant, signUpUser, loginUser };
+var getOneRestaurant = (req,res)=>{
+    db.query(`SELECT * FROM menu where restaurant_id = (SELECT restaurant_id from restaurant where name = "${req.params.name}" )`,(err,result)=>{
+        err?res.status(500).send(err):res.status(200).send(result)
+    })
+}
+    
+    module.exports={getALLRestaurant,getOneRestaurant,signUpUser, loginUser}
