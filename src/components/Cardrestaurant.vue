@@ -6,7 +6,7 @@
    <div class="cont" v-for="datas in data" :key="datas.name">
       <div class="card">
         <div class="card-header">
-          <!-- <img  v-bind:src="datas.picture" /> -->
+          <img  v-bind:src="datas.picture" />
         </div>
         <div class="card-body">
           <span class="tag tag-teal">{{datas.name}}</span>
@@ -15,7 +15,7 @@
             <!-- {{datas.description}} -->
           </p>
           <div class="user">
-            <img v-bind:src="datas.profile"  />
+            <img v-bind:src="datas.picture"  />
             <div class="user-info">
               <h5>Jerome Walton</h5>
              
