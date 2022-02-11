@@ -22,25 +22,26 @@
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your email for registration</div>
-        <input v-model="name" type="text" placeholder="Name" />
-        <input v-model="password" type="password" placeholder="Password" />
-        <input v-model="picture" type="text" placeholder="Email" />
-        <router-link :to="{ name: path }"
-          ><button @click="signup">Sign Up</button></router-link
-        >
-      </form>
-      <form class="sign-in" action="#">
-        <h2>Log In</h2>
-        <div>Use your account</div>
         <div id="Munich">
           <input type="text" placeholder="firstName" />
           <input type="text" placeholder="lastName" />
           <input type="text" placeholder="email" />
           <input type="password" placeholder="password" />
           <input type="number" placeholder="phoneNumber" />
-          <input type="number" placeholder="points" />
           <input id="bavaria" type="file" placeholder="profilePicture" />
         </div>
+        <router-link :to="{ name: path }"
+          ><button id="sign" @click="signup">Sign Up</button></router-link
+        >
+      </form>
+      <form class="sign-in" action="#">
+        <h2>Log In</h2>
+        <div>Use your account</div>
+
+        <input v-model="name" type="text" placeholder="Name" />
+        <input v-model="password" type="password" placeholder="Password" />
+        <input v-model="picture" type="text" placeholder="Email" />
+
         <label id="for">
           <a href="#">Forgot your password?</a>
         </label>
@@ -135,6 +136,9 @@ export default {
 .cont {
   position: absolute;
   margin: 7% 25%;
+}
+#sign {
+  margin-top: 25px;
 }
 .container {
   position: relative;
@@ -309,7 +313,4 @@ form {
 #for {
   margin-top: 25px;
 }
-// #all {
-//   background-image: url("../components/img2.jpg");
-// }
 </style>

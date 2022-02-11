@@ -1,13 +1,13 @@
 <script>
-import SidebarLink from "../sidebar/SidebarLink"
-import { collapsed, toggleSidebar, sidebarWidth } from './state'
+import SidebarLink from "../sidebar/SidebarLink";
+import { collapsed, toggleSidebar, sidebarWidth } from "./state";
 export default {
   props: {},
   components: { SidebarLink },
   setup() {
-    return { collapsed, toggleSidebar, sidebarWidth }
-  }
-}
+    return { collapsed, toggleSidebar, sidebarWidth };
+  },
+};
 </script>
 
 <template>
@@ -39,15 +39,14 @@ export default {
   </div>
 </template>
 
-
 <style scoped>
-.bottom{
+.bottom {
   position: absolute;
-  bottom : 10px
+  bottom: 10px;
 }
 .sidebar {
   color: white;
-  background-color:#f0e5d5;
+  background-color: #f0e5d5;
   float: left;
   position: fixed;
   z-index: 1;
@@ -62,8 +61,8 @@ export default {
 .sidebar h1 {
   height: 2.5em;
   font-weight: bold;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color:black
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: black;
 }
 .collapse-icon {
   position: absolute;
