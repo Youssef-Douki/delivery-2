@@ -4,6 +4,7 @@ import Login from "../components/Login.vue"
 import Cardrestaurant from "../components/Cardrestaurant.vue"
 import AdminMenu from "../components/AdminMenu.vue"
 import Order from "../components/Order.vue"
+import Cart from "../components/Cart.vue"
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
     path: '/analyze',
     name: 'Order',
     component: Order
+  }, {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
   }
 ]
 

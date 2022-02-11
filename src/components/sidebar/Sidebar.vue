@@ -25,6 +25,8 @@ export default {
     <SidebarLink to="/analytics" icon="fas fa-chart-bar">insert your menu</SidebarLink>
     <SidebarLink to="/friends" icon="fas fa-users">analytique</SidebarLink>
     <SidebarLink to="/analyze" icon="fas fa-image">orders</SidebarLink>
+        <SidebarLink to="/cart" icon="fas fa-image">cart</SidebarLink>
+
 
     <span
       class="collapse-icon"
@@ -38,9 +40,9 @@ export default {
 
 <style>
 :root {
-  --sidebar-bg-color: #2f855a;
-  --sidebar-item-hover: #38a169;
-  --sidebar-item-active: #276749;
+  --sidebar-bg-color: #dce0de;
+  --sidebar-item-hover: #101110;
+  --sidebar-item-active: #c0bcce;
 }
 </style>
 
