@@ -73,4 +73,4 @@ var getMenuOneRestaurant=(req,res)=>{
  deleteOrder=(req,res)=>{
      var params=[]
  }
-module.exports={getALL,signUp,login,addRestaurant,addMenu,getMenuOneRestaurant}
+module.exports={getALL,signUp,login,addMenu,getMenuOneRestaurant}

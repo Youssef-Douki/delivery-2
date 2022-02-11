@@ -20,13 +20,12 @@ export default {
       <span v-else>Restauranti</span>
     </h1>
 
-
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Insert restaurant</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">insert your menu</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">analytique</SidebarLink>
-    <SidebarLink to="/analyze" icon="fas fa-image">orders</SidebarLink>
-        <SidebarLink to="/cart" icon="fas fa-image">cart</SidebarLink>
+    <!-- <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink> -->
+    <SidebarLink to="/admin/menu" icon="fas fa-chart-bar">Insert your menu</SidebarLink>
+    <SidebarLink to="/admin/analyze" icon="fas fa-users">Analytique</SidebarLink>
+    <SidebarLink to="/admin/order" icon="fas fa-image">Orders</SidebarLink>
+    <!-- <SidebarLink to="/admin/cart" icon="fas fa-image">cart</SidebarLink> -->
+    <SidebarLink to="/admin" icon="fas fa-image">Log out</SidebarLink>
 
 
 

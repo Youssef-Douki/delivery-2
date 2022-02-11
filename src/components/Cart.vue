@@ -1,12 +1,7 @@
-// <script>
-// (function(){
+ <script>
  
-//   $("#cart").on("click", function() {
-//     $(".shopping-cart").fadeToggle( "fast");
-//   });
-  
-// })();
-// </script>
+ </script>
+
 
 <template>
     
@@ -109,13 +104,12 @@ nav {
 }
 
 .shopping-cart {
-  margin: 20px 0;
-  float: right;
   background: white;
-  width: 320px;
-  position: relative;
-  border-radius: 3px;
-  padding: 20px;
+    width: 320px;
+    position: absolute;
+    border-radius: 3px;
+    padding: 20px;
+    right: 50px;
   
   
   .shopping-cart-header {
