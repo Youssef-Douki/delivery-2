@@ -134,16 +134,16 @@ export default {
 
 #bu {
   border-radius: 20px;
-    border: 1px solid #484d4081;
-    background-color: #aa9f622f;
-    color: rgba(255, 255, 255, 0.411);
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 10px 40px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: transform 0.1s ease-in;
+  border: 1px solid #484d4081;
+  background-color: #aa9f622f;
+  color: rgba(255, 255, 255, 0.411);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 40px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.1s ease-in;
 }
 
 .main-hr {
@@ -316,6 +316,4 @@ body {
   color: blue;
   opacity: 0.8;
 }
-
-
 </style>
