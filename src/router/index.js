@@ -14,16 +14,17 @@ const routes = [
   {
     path: '/menu',
     name: 'menu',
-    component: Cardrestaurant
-  }, {
-    path: '/menu/:id',
-    name: 'AdminMenu',
     component: AdminMenu
   },
   {
     path: '/analyze',
     name: 'Order',
     component: Order
+  },
+   {
+    path: '/user/menu',
+    name: 'Cardrestaurant',
+    component: Cardrestaurant
   }
 ]
 
