@@ -1,5 +1,6 @@
 <template>
   <div class="menu">
+    <Sidebar/>
     <fieldset>
       <h3 id="ro">Resturant owner</h3>
       <legend>
@@ -52,8 +53,10 @@
   </div>
 </template>
 <script>
+import Sidebar from '../components/sidebar/Sidebar.vue'
 import axios from "axios";
 export default {
+  components: { Sidebar },
   name: "AdminMenu",
   data() {
     return {

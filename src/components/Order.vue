@@ -2,6 +2,7 @@
   
 
 <div class="container">
+  <Sidebar/>
   <h2>Order food</h2>
   <ul class="table">
     <li class="table-header">
@@ -20,6 +21,13 @@
   </ul>
 </div>
 </template>
+<script>
+import Sidebar from '../components/sidebar/Sidebar.vue'
+export default {
+  components: { Sidebar }
+}
+</script>
+
 <style lang="scss" scoped>
 body {
   font-family: 'lato', sans-serif;

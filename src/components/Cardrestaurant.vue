@@ -3,8 +3,8 @@
     
 
 <div class="container" >
-   <div class="cont" v-for="datas in data" :key="datas.name">
-      <div class="card">
+   <div class="cont" v-for="datas in this.data" :key="datas">
+      <router-link :to="{name : path , params:{name : pathName}}"><div  @click="goToMenu" :name="datas.name" class="card">
         <div class="card-header">
           <img  v-bind:src="datas.picture" />
         </div>
@@ -15,6 +15,7 @@
             {{datas.description}}
           </p>
           <div class="user">
+            
             <!-- <img v-bind:src="datas.profile"  />
             <div class="user-info">
               <h5>Jerome Walton</h5>
@@ -23,7 +24,10 @@
           </div>
           <!-- <router-link :to="{name:'AdminMenu',params:{id : datas.name}}"> <button class="btn">Menu</button></router-link> -->
         </div>
-      </div>
+      </div></router-link>
+     </div>
+     <div>
+      
      </div>
     </div>
 
@@ -58,20 +62,47 @@
   // }
   
 import axios from 'axios'
+
   export default {
+  
     
+  
     data(){
       return {
-        data:[]
+        data:[],
+        name :"",
+        path :"",
+        pathName : "",
+        
+        
       }
     },
     created(){
     axios.get("http://localhost:5000/user/restaurant")
-            .then(({data})=>{this.data = data})
+            .then((data)=>{this.data = data.data
+            })
           .catch(error => {
           
           console.error("There was an error!", error);
            });
+    },methods:{
+      goToMenu(e){
+        this.name = e.path[0].childNodes[0].data ||e.path[0].childNodes[0].childNodes[0].data
+        axios.get(`http://localhost:5000/user/menu/${this.name}`)
+        .then(response=>{
+          if(response.data.length!==0){
+            // console.log(response.data)
+            this.path = 'MenuOfRestaurant';
+            this.pathName = this.name
+           
+            localStorage.setItem("prop",JSON.stringify( this.name))
+            
+          }
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+      }
     }
   }
 

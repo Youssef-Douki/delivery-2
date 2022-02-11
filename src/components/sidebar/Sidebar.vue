@@ -21,10 +21,10 @@ export default {
     </h1>
 
     <!-- <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink> -->
-    <SidebarLink to="/menu" icon="fas fa-chart-bar">Insert your menu</SidebarLink>
-    <SidebarLink to="/analytique" icon="fas fa-users">Analytique</SidebarLink>
-    <SidebarLink to="/orders" icon="fas fa-image">Orders</SidebarLink>
-    <SidebarLink to="/" icon="fas fa-image">Log out</SidebarLink>
+    <SidebarLink to="/admin/menu" icon="fas fa-chart-bar">Insert your menu</SidebarLink>
+    <SidebarLink to="/admin/analyze" icon="fas fa-users">Analytique</SidebarLink>
+    <SidebarLink to="/admin/order" icon="fas fa-image">Orders</SidebarLink>
+    <SidebarLink to="/admin" icon="fas fa-image">Log out</SidebarLink>
 
     <span
       class="collapse-icon"

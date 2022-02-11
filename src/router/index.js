@@ -4,20 +4,21 @@ import Login from "../components/Login.vue"
 import Cardrestaurant from "../components/Cardrestaurant.vue"
 import AdminMenu from "../components/AdminMenu.vue"
 import Order from "../components/Order.vue"
+import MenuOfRestaurant from "../components/MenuOfRestaurant.vue"
 
 const routes = [
   {
-    path: '/',
+    path: '/admin',
     name: 'Login',
     component: Login
   },
   {
-    path: '/menu',
+    path: '/admin/menu',
     name: 'menu',
     component: AdminMenu
   },
   {
-    path: '/analyze',
+    path: '/admin/order',
     name: 'Order',
     component: Order
   },
@@ -25,6 +26,11 @@ const routes = [
     path: '/user/menu',
     name: 'Cardrestaurant',
     component: Cardrestaurant
+  },
+  {
+    path: '/user/menu/:name',
+    name: 'MenuOfRestaurant',
+    component: MenuOfRestaurant
   }
 ]
 
