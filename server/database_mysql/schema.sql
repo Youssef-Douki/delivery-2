@@ -12,6 +12,7 @@ CREATE TABLE user (
   profilePicture varchar(255),
   PRIMARY KEY (id)
 );
+
 CREATE TABLE restaurant (
   restaurant_id int NOT NULL AUTO_INCREMENT,
   name varchar(50),    
