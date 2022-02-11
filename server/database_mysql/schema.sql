@@ -17,7 +17,7 @@ CREATE TABLE restaurant (
   name varchar(50),    
   password varchar(64),
   picture  varchar(255),
-  description varchar(255)
+  description varchar(255),
   PRIMARY KEY (restaurant_id)
 );
 CREATE TABLE menu (
@@ -29,4 +29,5 @@ CREATE TABLE menu (
   FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id)  
 );
 /* excute schema  */
-/* mysql -u root -p <server/database_mysql/schema.sql */
+/* 
+ */
