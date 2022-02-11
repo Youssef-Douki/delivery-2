@@ -24,7 +24,9 @@ export default {
     <SidebarLink to="/admin/menu" icon="fas fa-chart-bar">Insert your menu</SidebarLink>
     <SidebarLink to="/admin/analyze" icon="fas fa-users">Analytique</SidebarLink>
     <SidebarLink to="/admin/order" icon="fas fa-image">Orders</SidebarLink>
+    <SidebarLink to="/admin/cart" icon="fas fa-image">cart</SidebarLink>
     <SidebarLink to="/admin" icon="fas fa-image">Log out</SidebarLink>
+
 
     <span
       class="collapse-icon"
@@ -35,7 +37,6 @@ export default {
     </span>
   </div>
 </template>
-
 
 
 <style scoped>

@@ -1,3 +1,8 @@
+<script>
+
+</script>
+
+
 <template>
   
 
@@ -10,12 +15,21 @@
       <div class="col col-2">desxription</div>
       <div class="col col-3">Amount Due</div>
       <div class="col col-4">Payment Status</div>
+      <div class="col col-4">confirmation</div>
+            <div class="col col-4">reject</div>
+
     </li>
     <li class="table-row">
       <div class="col col-1" data-label="Customer Name">42235</div>
       <div class="col col-2" data-label="desxription">John Doe</div>
       <div class="col col-3" data-label="Amount Due">$350</div>
       <div class="col col-4" data-label="Amount Due">Pending</div>
+      <!-- <button  class="col col-4" data-label="Amount Due">confirme</button> -->
+  <button class="col col-4" id="btn"><i class="fa fa-check"></i></button>
+
+
+      <!-- <button type="confirmation" class="col col-4" data-label="Amount Due">confirme</button> -->
+
     </li>
     
   </ul>
@@ -105,5 +119,19 @@ h2 {
       }
     }
   }
+}
+//////////: button 
+#btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+#btn:hover {
+  background-color: RoyalBlue;
 }
 </style>

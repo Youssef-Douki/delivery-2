@@ -5,6 +5,7 @@ import Cardrestaurant from "../components/Cardrestaurant.vue"
 import AdminMenu from "../components/AdminMenu.vue"
 import Order from "../components/Order.vue"
 import MenuOfRestaurant from "../components/MenuOfRestaurant.vue"
+import Cart from "../components/Cart.vue"
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     name: 'Order',
     component: Order
   },
+  //  {
+  //   path: '/user/cart',
+  //   name: 'Cart',
+  //   component: Cart
+  // },
    {
     path: '/user/menu',
     name: 'Cardrestaurant',
