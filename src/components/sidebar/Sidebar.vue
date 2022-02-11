@@ -17,14 +17,13 @@ export default {
         <div>V</div>
         <div>S</div>
       </span>
-      <span v-else>ADMIN DASHBOARD</span>
+      <span v-else>Restauranti</span>
     </h1>
 
     <!-- <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink> -->
-    <!-- <SidebarLink to="/dashboard" icon="fas fa-columns">Insert restaurant</SidebarLink> -->
-    <SidebarLink to="/menu" icon="fas fa-chart-bar">insert your menu</SidebarLink>
-    <SidebarLink to="/analytique" icon="fas fa-users">analytique</SidebarLink>
-    <SidebarLink to="/orders" icon="fas fa-image">orders</SidebarLink>
+    <SidebarLink to="/menu" icon="fas fa-chart-bar">Insert your menu</SidebarLink>
+    <SidebarLink to="/analytique" icon="fas fa-users">Analytique</SidebarLink>
+    <SidebarLink to="/orders" icon="fas fa-image">Orders</SidebarLink>
     <SidebarLink to="/" icon="fas fa-image">Log out</SidebarLink>
 
     <span
@@ -37,13 +36,7 @@ export default {
   </div>
 </template>
 
-<style>
-:root {
-  --sidebar-bg-color: #2f855a;
-  --sidebar-item-hover: #38a169;
-  --sidebar-item-active: #276749;
-}
-</style>
+
 
 <style scoped>
 .bottom{
@@ -52,7 +45,7 @@ export default {
 }
 .sidebar {
   color: white;
-  background-color: var(--sidebar-bg-color);
+  background-color:white;
   float: left;
   position: fixed;
   z-index: 1;
@@ -66,6 +59,9 @@ export default {
 }
 .sidebar h1 {
   height: 2.5em;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:black
 }
 .collapse-icon {
   position: absolute;

@@ -33,13 +33,13 @@ var signUp = function(req,res){
 
 var login =(req,res)=>{
     esm = req.body.loginName
-    db.query(`SELECT * FROM user WHERE name = '${req.body.loginName}';`,(err,result)=>{
+    db.query(`SELECT * FROM restaurant WHERE name = '${req.body.loginName}';`,(err,result)=>{
         if(err){
             throw err
         }else{
             var pass = result[0]
             if(bcrypt.compareSync(req.body.loginPassword,pass.password)){
-                res.send(result)
+                res.send("nice")
             }else{
                 res.send('incorrect')
             }

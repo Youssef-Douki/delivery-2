@@ -138,7 +138,7 @@ export default {
   padding: 19px 39px 18px 39px;
   color: #fff;
   margin: 0 auto;
-  background: #13bebe;
+  background: #5a585f;
   font-size: 18px;
   text-align: center;
   font-style: normal;
@@ -238,10 +238,11 @@ export default {
 }
 #ro {
   font-family: Century Gothic;
-  color: orangered;
+  color: black;
 }
 #add {
   font-family: Geneva;
+  color: black;
 }
 .menu { 
   font-family: Georgia, "Times New Roman", Times, serif;

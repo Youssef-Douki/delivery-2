@@ -29,4 +29,5 @@ CREATE TABLE menu (
   FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id)  
 );
 /* excute schema  */
-/* mysql -u root -p <server/database_mysql/schema.sql */
+/* mysql -u root -p <server/database_mysql/schema.sql
+ */
