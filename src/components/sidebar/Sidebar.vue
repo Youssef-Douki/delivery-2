@@ -45,7 +45,7 @@ export default {
 }
 .sidebar {
   color: white;
-  background-color:white;
+  background-color:#f0e5d5;
   float: left;
   position: fixed;
   z-index: 1;

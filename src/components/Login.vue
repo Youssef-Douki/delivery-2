@@ -120,8 +120,8 @@ export default {
         .then((response) => {
           console.log(response.data);
           response.data === "nice"
-            ? (this.path = "menu")
-            : (this.path = "Login");
+            ? (this.path = "For JOU to link")
+            : (this.path = "For JOU to link");
         })
         .catch((err) => {
           console.log(err);
@@ -159,7 +159,7 @@ export default {
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to bottom right, #e3e0db, #da050b);
+    background: linear-gradient(to bottom right, #e3e0db, #26b559);
     color: #fff;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;

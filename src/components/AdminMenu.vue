@@ -47,8 +47,6 @@
       </div>
       <button id="bu" type="submit" @click="getMenuFood">Submit</button>
     </fieldset>
-    
-    
   </div>
 </template>
 <script>
@@ -81,9 +79,11 @@ export default {
 <style>
 #dish {
   margin-top: 15px;
+  color: black;
 }
 #bavaria {
   margin-top: 8px;
+  color: black;
 }
 .menu {
   max-width: 500px;
@@ -133,20 +133,17 @@ export default {
 }
 
 #bu {
-  position: relative;
-  display: block;
-  padding: 19px 39px 18px 39px;
-  color: #fff;
-  margin: 0 auto;
-  background: #5a585f;
-  font-size: 18px;
-  text-align: center;
-  font-style: normal;
-  width: 100%;
-  border: 1px solid #089696;
-  border-width: 1px 1px 3px;
-  margin-bottom: 10px;
-  margin-top: 20px;
+  border-radius: 20px;
+    border: 1px solid #484d4081;
+    background-color: #aa9f622f;
+    color: rgba(255, 255, 255, 0.411);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.1s ease-in;
 }
 
 .main-hr {
@@ -176,7 +173,7 @@ export default {
   height: 4px;
   width: 10px;
   top: calc(50% - 2px);
-  background: rgb(0, 255, 0)
+  background: rgb(0, 255, 0);
 }
 .add-btn::after {
   right: 14px;
@@ -244,7 +241,7 @@ export default {
   font-family: Geneva;
   color: black;
 }
-.menu { 
+.menu {
   font-family: Georgia, "Times New Roman", Times, serif;
   background: rgba(255, 255, 255, 0.1);
   border: none;
@@ -256,7 +253,8 @@ export default {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  background-color: #e8eeef;
+  background-color: #f0e5d5;
+  opacity: 0.7;
   color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
@@ -306,17 +304,18 @@ export default {
 }
 
 body {
-  background-image: url(".//img1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-image: url("./img3.jpg");
+  /* background-size: 30; */
+
+  /* background-repeat: no-repeat;
+  background-attachment: fixed; */
 }
 
-.mc{
-
-     font-family: myFirstFont;
-     color :blue;
-     opacity: 0.8;
-     
+.mc {
+  font-family: myFirstFont;
+  color: blue;
+  opacity: 0.8;
 }
+
+
 </style>

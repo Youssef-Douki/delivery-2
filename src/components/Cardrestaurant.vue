@@ -1,18 +1,15 @@
-<template >
-
-    
-
-<div class="container" >
-   <div class="cont" v-for="datas in data" :key="datas.name">
+<template>
+  <div class="container">
+    <div class="cont" v-for="datas in data" :key="datas.name">
       <div class="card">
         <div class="card-header">
-          <img  v-bind:src="datas.picture" />
+          <img v-bind:src="datas.picture" />
         </div>
         <div class="card-body">
-          <span class="tag tag-teal">{{datas.name}}</span>
-          <h4 >description</h4>
+          <span class="tag tag-teal">{{ datas.name }}</span>
+          <h4>description</h4>
           <p>
-            {{datas.description}}
+            {{ datas.description }}
           </p>
           <div class="user">
             <!-- <img v-bind:src="datas.profile"  />
@@ -24,67 +21,55 @@
           <!-- <router-link :to="{name:'AdminMenu',params:{id : datas.name}}"> <button class="btn">Menu</button></router-link> -->
         </div>
       </div>
-     </div>
     </div>
-
-   
-  
-  
-
-  
-
-
-
+  </div>
 </template>
 <script>
- 
-  // export default {
-  //   name:"Cardrestaurant",   
-  //    data(){
-  //      return {
-  //     data:[
+// export default {
+//   name:"Cardrestaurant",
+//    data(){
+//      return {
+//     data:[
 
-  //       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.45ec96fab3c5d8a777be6c402530c0bc?rik=eNpbpvyCS4Q9sg&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://images.herb.co/wp-content/uploads/2017/06/You_Have_To_hero-1.jpg?auto=compress"},
+//       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.45ec96fab3c5d8a777be6c402530c0bc?rik=eNpbpvyCS4Q9sg&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://images.herb.co/wp-content/uploads/2017/06/You_Have_To_hero-1.jpg?auto=compress"},
 
-  //       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.0ff4682f4dcd351db58c3b924ac80419?rik=BEiDH9vsiieLeg&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://move2turkey.com/wp-content/uploads/2021/02/Turkish-Chef-Nusret-All-you-need-to-know-about-the-Salt-Bae-Restaurants5.jpg"},
+//       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.0ff4682f4dcd351db58c3b924ac80419?rik=BEiDH9vsiieLeg&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://move2turkey.com/wp-content/uploads/2021/02/Turkish-Chef-Nusret-All-you-need-to-know-about-the-Salt-Bae-Restaurants5.jpg"},
 
-  //       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.81bfeecfb8d1c6ad04c171b8ad63ba40?rik=sSu6ISZl635H0Q&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://th.bing.com/th/id/OIP.6_h3MvJc0ohyL24B68yN2wHaEE?pid=ImgDet&rs=1"},
+//       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.81bfeecfb8d1c6ad04c171b8ad63ba40?rik=sSu6ISZl635H0Q&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://th.bing.com/th/id/OIP.6_h3MvJc0ohyL24B68yN2wHaEE?pid=ImgDet&rs=1"},
 
-  //       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.3513494f8c937b8e4eb42da767da2f73?rik=ZfT4Bims43MnHQ&riu=http%3a%2f%2fdeturquia.com%2fwp-content%2fuploads%2f2018%2f02%2f2287.jpg&ehk=%2fpc009vgrCFqqE9KxQbD%2bOjhfOIuclAS3TcjWodGCUA%3d&risl=&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://th.bing.com/th/id/R.65367c23cdfcdc3ae3a2edb997596868?rik=D69xuhnzjoqSCQ&pid=ImgRaw&r=0"},
+//       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.3513494f8c937b8e4eb42da767da2f73?rik=ZfT4Bims43MnHQ&riu=http%3a%2f%2fdeturquia.com%2fwp-content%2fuploads%2f2018%2f02%2f2287.jpg&ehk=%2fpc009vgrCFqqE9KxQbD%2bOjhfOIuclAS3TcjWodGCUA%3d&risl=&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://th.bing.com/th/id/R.65367c23cdfcdc3ae3a2edb997596868?rik=D69xuhnzjoqSCQ&pid=ImgRaw&r=0"},
 
-  //     ]
-  //   }
-  //   }
-  // }
-  
-import axios from 'axios'
-  export default {
-    
-    data(){
-      return {
-        data:[]
-      }
-    },
-    created(){
-    axios.get("http://localhost:5000/user/restaurant")
-            .then(({data})=>{this.data = data})
-          .catch(error => {
-          
-          console.error("There was an error!", error);
-           });
-    }
-  }
+//     ]
+//   }
+//   }
+// }
 
+import axios from "axios";
+export default {
+  data() {
+    return {
+      data: [],
+    };
+  },
+  created() {
+    axios
+      .get("http://localhost:5000/user/restaurant")
+      .then(({ data }) => {
+        this.data = data;
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  },
+};
 
-   
- 
-  
-  
-// </script>
+//
+</script>
 
-// <style  lang="scss" scoped>
- @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
-  
+//
+<style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -97,9 +82,9 @@ body {
   height: 100vh;
   margin: 0;
 }
-.cont{
+.cont {
   width: 30%;
-  height:50%;
+  height: 50%;
 }
 .card {
   background-color: #fff;
@@ -107,29 +92,28 @@ body {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 400px;
-  height:500px;
+  height: 500px;
   // margin-right: -100px;
 }
 .card-header img {
   width: 100%;
-  height: 270px;;
+  height: 270px;
   object-fit: cover;
 }
 .card-body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  
+
   min-height: 250px;
-  
 }
 .tag {
-color: #fff;
-    font-size: 13px;
-    padding: 4px 143px;
-    text-transform: uppercase;
-    width: 100%;
-    font-weight: bold;
+  color: #fff;
+  font-size: 13px;
+  padding: 4px 143px;
+  text-transform: uppercase;
+  width: 100%;
+  font-weight: bold;
 }
 .tag-teal {
   background-color: #5a585f;
@@ -173,8 +157,6 @@ color: #fff;
   }
 }
 
-
-
 /* CSS */
 .btn {
   align-items: center;
@@ -186,12 +168,12 @@ color: #fff;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  font-family: "Codec cold",sans-serif;
+  font-family: "Codec cold", sans-serif;
   font-size: 16px;
   font-weight: 700;
   height: 54px;
   justify-content: center;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   line-height: 1;
   max-width: 100%;
   padding-left: 20px;
@@ -203,7 +185,7 @@ color: #fff;
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-left: 280px;
-  margin-bottom:90px;
+  margin-bottom: 90px;
 }
 
 .btn:active {
@@ -219,8 +201,8 @@ color: #fff;
 }
 
 .btn:hover span {
-  transform: scale(.9);
-  opacity: .75;
+  transform: scale(0.9);
+  opacity: 0.75;
 }
 
 @media screen and (max-width: 991px) {
@@ -233,16 +215,14 @@ color: #fff;
     line-height: 50px;
   }
 }
-.container{
-   display: grid;
-grid-template-columns: repeat(3, 0.25fr);
-grid-template-rows: repeat(9, 0fr);
-grid-column-gap: 10px;
-grid-row-gap: 10px;
-    margin-left: 19%;
-    margin: right 10%;
-    margin-top : 8%
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 0.25fr);
+  grid-template-rows: repeat(9, 0fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  margin-left: 19%;
+  margin: right 10%;
+  margin-top: 8%;
 }
-
-
 </style>

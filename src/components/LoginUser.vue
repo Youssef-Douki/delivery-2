@@ -1,4 +1,4 @@
-<template>
+<template id="all">
   <article class="cont">
     <div class="container" :class="{ 'sign-up-active': signUp }">
       <div class="overlay-container">
@@ -64,8 +64,8 @@ export default {
       profilePicture: "",
       path: "LoginUser",
       signUp: false,
-      loginPasswordUser:"",
-      loginNameUser:""
+      loginPasswordUser: "",
+      loginNameUser: "",
     };
   },
   methods: {
@@ -75,7 +75,10 @@ export default {
       form.append("file", this.pictureUser);
       form.append("upload_preset", "bpnhlkro");
       axios
-        .post("https://api.cloudinary.com/v1_1/dhgzyelo6/image/upload", formUser)
+        .post(
+          "https://api.cloudinary.com/v1_1/dhgzyelo6/image/upload",
+          formUser
+        )
         .then((response) => {
           this.pictureUser = response.data.secure_url;
         });
@@ -92,7 +95,7 @@ export default {
         points: this.points,
         profilePicture: this.profilePicture,
       };
-// POST request using axios with error handling
+      // POST request using axios with error handling
       axios
         .post("http://localhost:5000/user/signupUser", user)
         .then((response) => {
@@ -156,7 +159,7 @@ export default {
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to bottom right, #e3e0db, #da050b);
+    background: linear-gradient(to bottom right, #e3e0db, #dc700fad);
     color: #fff;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
@@ -216,7 +219,7 @@ button {
 }
 button.invert {
   background-color: transparent;
-  border-color: rgba(189, 54, 54, 0.527);
+  border-color: rgba(90, 54, 189, 0.527);
 }
 form {
   position: absolute;
@@ -306,4 +309,7 @@ form {
 #for {
   margin-top: 25px;
 }
+// #all {
+//   background-image: url("../components/img2.jpg");
+// }
 </style>
