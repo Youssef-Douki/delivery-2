@@ -6,13 +6,13 @@
    <div class="cont" v-for="datas in this.data" :key="datas">
       <router-link :to="{name : path , params:{name : pathName}}"><div  @click="goToMenu" :name="datas.name" class="card">
         <div class="card-header">
-          <img  v-bind:src="datas.picture" />
+          <img v-bind:src="datas.picture" />
         </div>
         <div class="card-body">
-          <span class="tag tag-teal">{{datas.name}}</span>
-          <h4 >description</h4>
+          <span class="tag tag-teal">{{ datas.name }}</span>
+          <h4>description</h4>
           <p>
-            {{datas.description}}
+            {{ datas.description }}
           </p>
           <div class="user">
             
@@ -27,17 +27,6 @@
       </div></router-link>
      </div>
      <div>
-      
-     </div>
-    </div>
-
-   
-  
-  
-
-  
-
-
 
 </template>
 <script>
@@ -111,11 +100,9 @@ import axios from 'axios'
  
   
   
-// </script>
+</script>
+<style lang="scss" scoped>
 
-// <style  lang="scss" scoped>
- @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
-  
 * {
   box-sizing: border-box;
 }
@@ -128,9 +115,9 @@ body {
   height: 100vh;
   margin: 0;
 }
-.cont{
+.cont {
   width: 30%;
-  height:50%;
+  height: 50%;
 }
 .card {
   background-color: #fff;
@@ -138,29 +125,28 @@ body {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 400px;
-  height:500px;
+  height: 500px;
   // margin-right: -100px;
 }
 .card-header img {
   width: 100%;
-  height: 270px;;
+  height: 270px;
   object-fit: cover;
 }
 .card-body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  
+
   min-height: 250px;
-  
 }
 .tag {
-color: #fff;
-    font-size: 13px;
-    padding: 4px 143px;
-    text-transform: uppercase;
-    width: 100%;
-    font-weight: bold;
+  color: #fff;
+  font-size: 13px;
+  padding: 4px 143px;
+  text-transform: uppercase;
+  width: 100%;
+  font-weight: bold;
 }
 .tag-teal {
   background-color: #5a585f;
@@ -204,12 +190,10 @@ color: #fff;
   }
 }
 
-
-
 /* CSS */
 .btn {
   align-items: center;
-  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  background-image: linear-gradient(135deg, #9e9e9e 40%, #9e9e9e);
   border: 0;
   border-radius: 10px;
   box-sizing: border-box;
@@ -217,12 +201,12 @@ color: #fff;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  font-family: "Codec cold",sans-serif;
+  font-family: "Codec cold", sans-serif;
   font-size: 16px;
   font-weight: 700;
   height: 54px;
   justify-content: center;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   line-height: 1;
   max-width: 100%;
   padding-left: 20px;
@@ -234,7 +218,7 @@ color: #fff;
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-left: 280px;
-  margin-bottom:90px;
+  margin-bottom: 90px;
 }
 
 .btn:active {
@@ -250,8 +234,8 @@ color: #fff;
 }
 
 .btn:hover span {
-  transform: scale(.9);
-  opacity: .75;
+  transform: scale(0.9);
+  opacity: 0.75;
 }
 
 @media screen and (max-width: 991px) {
@@ -264,16 +248,14 @@ color: #fff;
     line-height: 50px;
   }
 }
-.container{
-   display: grid;
-grid-template-columns: repeat(3, 0.25fr);
-grid-template-rows: repeat(9, 0fr);
-grid-column-gap: 10px;
-grid-row-gap: 10px;
-    margin-left: 19%;
-    margin: right 10%;
-    margin-top : 8%
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 0.25fr);
+  grid-template-rows: repeat(9, 0fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  margin-left: 19%;
+  margin: right 10%;
+  margin-top: 8%;
 }
-
-
 </style>

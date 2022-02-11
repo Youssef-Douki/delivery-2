@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+          <Cart />
       <div class="cont" v-for="datas in data" :key="datas.food_name" >
           <h3 class="food_name">{{datas.food_name}}</h3>
           <h4 class="price">{{datas.price}}</h4> 
@@ -10,9 +11,12 @@
 </template>
 
 <script>
+import Cart from "./Cart.vue"
 import axios from "axios"
 export default {
- 
+ components: {
+   Cart
+ },
      
     data(){
       return {
@@ -37,7 +41,7 @@ export default {
 <style>
 .cont{
  border-radius: 18px;
-    background-color: grey;
+    background-color: #8f7e6aa8;
     margin-right: 30%;
     margin-bottom: 20px;
     padding: 8px 0px;

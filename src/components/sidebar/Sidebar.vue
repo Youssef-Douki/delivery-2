@@ -24,8 +24,9 @@ export default {
     <SidebarLink to="/admin/menu" icon="fas fa-chart-bar">Insert your menu</SidebarLink>
     <SidebarLink to="/admin/analyze" icon="fas fa-users">Analytique</SidebarLink>
     <SidebarLink to="/admin/order" icon="fas fa-image">Orders</SidebarLink>
-    <SidebarLink to="/admin/cart" icon="fas fa-image">cart</SidebarLink>
+    <!-- <SidebarLink to="/admin/cart" icon="fas fa-image">cart</SidebarLink> -->
     <SidebarLink to="/admin" icon="fas fa-image">Log out</SidebarLink>
+
 
 
     <span
@@ -46,7 +47,7 @@ export default {
 }
 .sidebar {
   color: white;
-  background-color:white;
+  background-color:#f0e5d5;
   float: left;
   position: fixed;
   z-index: 1;

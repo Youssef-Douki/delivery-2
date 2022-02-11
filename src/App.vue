@@ -1,12 +1,13 @@
-// <script>
-import Sidebar from './components/sidebar/Sidebar'
-import { sidebarWidth } from '../src/components/sidebar/state'
+//
+<script>
+import Sidebar from "./components/sidebar/Sidebar";
+import { sidebarWidth } from "../src/components/sidebar/state";
 export default {
   components: { Sidebar },
   // setup() {
   //   return { sidebarWidth }
   // }
-}
+};
 </script>
 <template>
   <div id="nav">  
@@ -14,7 +15,6 @@ export default {
     <router-view/>
     
   </div>
-  
 </template>
 
 <style>
@@ -39,7 +39,7 @@ export default {
   color: black;
 }
 body {
-  background-image: url("../src/components/img1.jpg");
+  background-image: url("../src/components/img2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
