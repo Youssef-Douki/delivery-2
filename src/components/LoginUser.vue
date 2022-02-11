@@ -22,9 +22,8 @@
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your email for registration</div>
-        <input v-model="name" type="text" placeholder="Name" />
-        <input v-model="password" type="password" placeholder="Password" />
         <input v-model="picture" type="text" placeholder="Email" />
+        <input v-model="password" type="password" placeholder="Password" />
         <router-link :to="{ name: path }"
           ><button @click="signup">Sign Up</button></router-link
         >
