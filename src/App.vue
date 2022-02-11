@@ -1,4 +1,4 @@
-<script>
+// <script>
 import Sidebar from './components/sidebar/Sidebar'
 import { sidebarWidth } from '../src/components/sidebar/state'
 export default {
@@ -9,9 +9,10 @@ export default {
 }
 </script>
 <template>
-  <div id="nav">
+  <div id="nav">  
     <Sidebar/>
     <router-view/>
+    
   </div>
   
 </template>

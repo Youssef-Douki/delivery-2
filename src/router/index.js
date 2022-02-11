@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from "../components/Login.vue"
 import Cardrestaurant from "../components/Cardrestaurant.vue"
 import AdminMenu from "../components/AdminMenu.vue"
+import Order from "../components/Order.vue"
+
 const routes = [
   {
     path: '/',
@@ -17,6 +19,11 @@ const routes = [
     path: '/menu/:id',
     name: 'AdminMenu',
     component: AdminMenu
+  },
+  {
+    path: '/analyze',
+    name: 'Order',
+    component: Order
   }
 ]
 
