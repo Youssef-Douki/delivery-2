@@ -29,13 +29,6 @@ CREATE TABLE menu (
   PRIMARY KEY(id),
   FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id)  
 );
-CREATE TABLE orders (
-  id int NOT NULL AUTO_INCREMENT,
-  food_order varchar(255),
-  restaurant_id int,
-  PRIMARY KEY(id),
-  FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id)  
-)
 /* excute schema  */
 /* mysql -u root -p <server/database_mysql/schema.sql
  */

@@ -23,11 +23,6 @@ const routes = [
     name: "Order",
     component: Order,
   },
-  //  {
-  //   path: '/user/cart',
-  //   name: 'Cart',
-  //   component: Cart
-  // },
   {
     path: "/user/menu",
     name: "Cardrestaurant",
