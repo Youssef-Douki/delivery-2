@@ -22,29 +22,27 @@
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your email for registration</div>
-        <input v-model="name" type="text" placeholder="Name" />
-        <input v-model="password" type="password" placeholder="Password" />
-        <input v-model="picture" type="text" placeholder="Email" />
-        <router-link :to="{ name: path }"
-          ><button @click="signup">Sign Up</button></router-link
-        >
+        <div >
+          <input @change="change" name="firstName" type="text" placeholder="firstName" />
+          <input @change="change" name="lastName" type="text" placeholder="lastName" />
+          <input @change="change" name="email" type="text" placeholder="email" />
+          <input @change="change" name="password" type="password" placeholder="password" />
+          <input @change="change" name="phoneNumber" type="number" placeholder="phoneNumber" />
+          <input @change="change" name="profilePicture" type="file" placeholder="profilePicture" />
+        </div>
+        <router-link :to="{ name: path }"><button id="sign" @click="signup">Sign Up</button></router-link>
       </form>
       <form class="sign-in" action="#">
         <h2>Log In</h2>
         <div>Use your account</div>
-        <div id="Munich">
-          <input type="text" placeholder="firstName" />
-          <input type="text" placeholder="lastName" />
-          <input type="text" placeholder="email" />
-          <input type="password" placeholder="password" />
-          <input type="number" placeholder="phoneNumber" />
-          <input type="number" placeholder="points" />
-          <input id="bavaria" type="file" placeholder="profilePicture" />
-        </div>
+
+        <input @change="change" name="loginEmailUser" type="text" placeholder="Email" />
+        <input @change="change" name="loginPasswordUser" type="password" placeholder="Password" />
+
         <label id="for">
           <a href="#">Forgot your password?</a>
         </label>
-        <router-link to="/menu"><button>Log in</button></router-link>
+        <router-link :to="{name:path}"><button @click="logIn">Log in</button></router-link>
       </form>
     </div>
   </article>
@@ -60,12 +58,11 @@ export default {
       email: "",
       password: "",
       phoneNumber: "",
-      points: "",
       profilePicture: "",
       path: "LoginUser",
       signUp: false,
       loginPasswordUser: "",
-      loginNameUser: "",
+      loginEmailUser: "",
     };
   },
   methods: {
@@ -84,7 +81,7 @@ export default {
         });
     },
     change(e) {
-      this[e.target.firstName] = e.target.value;
+      this[e.target.name] = e.target.value;
     },
     signup() {
       const user = {
@@ -92,7 +89,7 @@ export default {
         lastName: this.lastName,
         email: this.email,
         password: this.password,
-        points: this.points,
+        phoneNumber : this.phoneNumber,
         profilePicture: this.profilePicture,
       };
       // POST request using axios with error handling
@@ -101,8 +98,8 @@ export default {
         .then((response) => {
           localStorage.setItem(user, JSON.stringify(user));
           response.data === "nice"
-            ? (this.path = "menu")
-            : (this.path = "Login");
+            ? (this.path = "Cardrestaurant")
+            : (this.path = "LoginUser");
         })
         .catch((error) => {
           this.errorMessage = error.message;
@@ -111,7 +108,7 @@ export default {
     },
     logIn() {
       const user = {
-        loginName: this.loginNameUser,
+        loginEmail: this.loginEmailUser,
         loginPassword: this.loginPasswordUser,
       };
 
@@ -120,8 +117,8 @@ export default {
         .then((response) => {
           console.log(response.data);
           response.data === "nice"
-            ? (this.path = "menu")
-            : (this.path = "Login");
+            ? (this.path = "Cardrestaurant")
+            : (this.path = "LoginUser");
         })
         .catch((err) => {
           console.log(err);
@@ -135,6 +132,9 @@ export default {
 .cont {
   position: absolute;
   margin: 7% 25%;
+}
+#sign {
+  margin-top: 25px;
 }
 .container {
   position: relative;
@@ -309,7 +309,4 @@ form {
 #for {
   margin-top: 25px;
 }
-// #all {
-//   background-image: url("../components/img2.jpg");
-// }
 </style>
