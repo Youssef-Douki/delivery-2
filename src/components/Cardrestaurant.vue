@@ -1,105 +1,96 @@
 <template>
-<div class="container" >
-   <div class="cont" v-for="datas in this.data" :key="datas">
-      <router-link :to="{name : path , params:{name : pathName}}"><div  @click="goToMenu" :name="datas.name" class="card">
-        <div class="card-header">
-          <img v-bind:src="datas.picture" />
-        </div>
-        <div class="card-body">
-          <span class="tag tag-teal">{{ datas.name }}</span>
-          <h4>description</h4>
-          <p>
-            {{ datas.description }}
-          </p>
-          <div class="user">
-            
-            <!-- <img v-bind:src="datas.profile"  />
+  <div class="container">
+    <div class="cont" v-for="datas in this.data" :key="datas">
+      <router-link :to="{ name: path, params: { name: pathName } }"
+        ><div @click="goToMenu" :name="datas.name" class="card">
+          <div class="card-header">
+            <img v-bind:src="datas.picture" />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-teal">{{ datas.name }}</span>
+            <h4>description</h4>
+            <p>
+              {{ datas.description }}
+            </p>
+            <div class="user">
+              <!-- <img v-bind:src="datas.profile"  />
             <div class="user-info">
               <h5>Jerome Walton</h5>
              
             </div> -->
+            </div>
+            <!-- <router-link :to="{name:'AdminMenu',params:{id : datas.name}}"> <button class="btn">Menu</button></router-link> -->
           </div>
-          <!-- <router-link :to="{name:'AdminMenu',params:{id : datas.name}}"> <button class="btn">Menu</button></router-link> -->
-        </div>
-      </div></router-link>
-     </div>
-     </div>
-
+        </div></router-link
+      >
+    </div>
+  </div>
 </template>
 <script>
- 
-  // export default {
-  //   name:"Cardrestaurant",   
-  //    data(){
-  //      return {
-  //     data:[
+// export default {
+//   name:"Cardrestaurant",
+//    data(){
+//      return {
+//     data:[
 
-  //       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.45ec96fab3c5d8a777be6c402530c0bc?rik=eNpbpvyCS4Q9sg&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://images.herb.co/wp-content/uploads/2017/06/You_Have_To_hero-1.jpg?auto=compress"},
+//       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.45ec96fab3c5d8a777be6c402530c0bc?rik=eNpbpvyCS4Q9sg&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://images.herb.co/wp-content/uploads/2017/06/You_Have_To_hero-1.jpg?auto=compress"},
 
-  //       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.0ff4682f4dcd351db58c3b924ac80419?rik=BEiDH9vsiieLeg&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://move2turkey.com/wp-content/uploads/2021/02/Turkish-Chef-Nusret-All-you-need-to-know-about-the-Salt-Bae-Restaurants5.jpg"},
+//       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.0ff4682f4dcd351db58c3b924ac80419?rik=BEiDH9vsiieLeg&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://move2turkey.com/wp-content/uploads/2021/02/Turkish-Chef-Nusret-All-you-need-to-know-about-the-Salt-Bae-Restaurants5.jpg"},
 
-  //       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.81bfeecfb8d1c6ad04c171b8ad63ba40?rik=sSu6ISZl635H0Q&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://th.bing.com/th/id/OIP.6_h3MvJc0ohyL24B68yN2wHaEE?pid=ImgDet&rs=1"},
+//       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.81bfeecfb8d1c6ad04c171b8ad63ba40?rik=sSu6ISZl635H0Q&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://th.bing.com/th/id/OIP.6_h3MvJc0ohyL24B68yN2wHaEE?pid=ImgDet&rs=1"},
 
-  //       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.3513494f8c937b8e4eb42da767da2f73?rik=ZfT4Bims43MnHQ&riu=http%3a%2f%2fdeturquia.com%2fwp-content%2fuploads%2f2018%2f02%2f2287.jpg&ehk=%2fpc009vgrCFqqE9KxQbD%2bOjhfOIuclAS3TcjWodGCUA%3d&risl=&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://th.bing.com/th/id/R.65367c23cdfcdc3ae3a2edb997596868?rik=D69xuhnzjoqSCQ&pid=ImgRaw&r=0"},
+//       {title:"restaurantii",restimage:"https://th.bing.com/th/id/R.3513494f8c937b8e4eb42da767da2f73?rik=ZfT4Bims43MnHQ&riu=http%3a%2f%2fdeturquia.com%2fwp-content%2fuploads%2f2018%2f02%2f2287.jpg&ehk=%2fpc009vgrCFqqE9KxQbD%2bOjhfOIuclAS3TcjWodGCUA%3d&risl=&pid=ImgRaw&r=0",description:"very good ma8ir harisa",profile:"https://th.bing.com/th/id/R.65367c23cdfcdc3ae3a2edb997596868?rik=D69xuhnzjoqSCQ&pid=ImgRaw&r=0"},
 
-  //     ]
-  //   }
-  //   }
-  // }
-  
-import axios from 'axios'
+//     ]
+//   }
+//   }
+// }
 
-  export default {
-  
-    
-  
-    data(){
-      return {
-        data:[],
-        name :"",
-        path :"",
-        pathName : "",
-        
-        
-      }
-    },
-    created(){
-    axios.get("http://localhost:5000/user/restaurant")
-            .then((data)=>{this.data = data.data
-            })
-          .catch(error => {
-          
-          console.error("There was an error!", error);
-           });
-    },methods:{
-      goToMenu(e){
-        this.name = e.path[0].childNodes[0].data ||e.path[0].childNodes[0].childNodes[0].data
-        axios.get(`http://localhost:5000/user/menu/${this.name}`)
-        .then(response=>{
-          if(response.data.length!==0){
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      data: [],
+      name: "",
+      path: "",
+      pathName: "",
+    };
+  },
+  created() {
+    axios
+      .get("http://localhost:5000/user/restaurant")
+      .then((data) => {
+        this.data = data.data;
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  },
+  methods: {
+    goToMenu(e) {
+      this.name =
+        e.path[0].childNodes[0].data ||
+        e.path[0].childNodes[0].childNodes[0].data;
+      axios
+        .get(`http://localhost:5000/user/menu/${this.name}`)
+        .then((response) => {
+          if (response.data.length !== 0) {
             // console.log(response.data)
-            this.path = 'MenuOfRestaurant';
-            this.pathName = this.name
-           
-            localStorage.setItem("prop",JSON.stringify( this.name))
-            
+            this.path = "MenuOfRestaurant";
+            this.pathName = this.name;
+
+            localStorage.setItem("prop", JSON.stringify(this.name));
           }
         })
-        .catch(err=>{
-          console.log(err)
-        })
-      }
-    }
-  }
-
-
-   
- 
-  
-  
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
-
 * {
   box-sizing: border-box;
 }
