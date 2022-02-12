@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="cont" v-for="datas in this.data" :key="datas">
-      <router-link :to="{ name: path, params: { name: pathName } }"
-        ><div @click="goToMenu" :name="datas.name" class="card">
+      <router-link :to="{ name: path, params: { name: pathName } }">
+        <div @click="goToMenu" :name="datas.name" class="card">
           <div class="card-header">
             <img v-bind:src="datas.picture" />
           </div>
