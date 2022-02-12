@@ -7,21 +7,22 @@
     <ul class="table">
       <li class="table-header">
         <div class="col col-1">Customer Name</div>
-        <div class="col col-2">desxription</div>
-        <div class="col col-3">Amount Due</div>
+        <div class="col col-3">order</div>
+
         <div class="col col-4">Payment Status</div>
         <div class="col col-4">confirmation</div>
-        <div class="col col-4">reject</div>
       </li>
       <li class="table-row">
-        <div class="col col-1" data-label="Customer Name">42235</div>
-        <div class="col col-2" data-label="desxription">John Doe</div>
-        <div class="col col-3" data-label="Amount Due">$350</div>
-        <div class="col col-4" data-label="Amount Due">Pending</div>
-        <!-- <button  class="col col-4" data-label="Amount Due">confirme</button> -->
-        <button class="col col-4" id="btn"><i class="fa fa-check"></i></button>
+        <div class="col col-2" data-label="desxription">{{order.name}}</div>
+        <div v-for="data in order.orders" :key="data.food_name">
+          <div class="col col-3" data-label="Order">{{data.food_name}}</div>
+        </div>
+        <div class="col col-3" data-label="Amount Due">{{order.total}}</div>
 
-        <!-- <button type="confirmation" class="col col-4" data-label="Amount Due">confirme</button> -->
+        <div class="col col-3" data-label="Order">{{order.phoneNumber}}</div>
+
+        
+        <button class="col col-4" id="btn"><i class="fa fa-check"></i></button>
       </li>
     </ul>
   </div>
@@ -29,7 +30,17 @@
 <script>
 import Sidebar from "../components/sidebar/Sidebar.vue";
 export default {
+  data(){
+      return {
+        order : []
+
+      }
+  },
   components: { Sidebar },
+  created(){
+    this.order= JSON.parse(localStorage.getItem("order"))
+    console.log(this.order)
+  }
 };
 </script>
 

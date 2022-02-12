@@ -99,7 +99,7 @@ export default {
       axios
         .post("http://localhost:5000/admin/signup", admin)
         .then((response) => {
-          localStorage.setItem(admin, JSON.stringify(admin));
+          localStorage.setItem("admin", JSON.stringify(admin));
           response.data === "nice"
             ? (this.path = "menu")
             : (this.path = "Login");

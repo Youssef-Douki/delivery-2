@@ -19,7 +19,7 @@
         
       </ul>
 
-      <a href="#" class="button">Buy</a>
+      <router-link :to="{name : path }"><a @click="sendOrders" class="button">Buy</a></router-link>
     </div>
   </div>
   
@@ -46,7 +46,9 @@ export default {
         foodName:"",
         orders : [],
         price : 4,
-        badge : 0
+        badge : 0,
+        path : "MenuOfRestaurant",
+        firstName : ""
 
       }
     }, mounted(){
@@ -66,6 +68,7 @@ export default {
       console.log(this.foodName,this.name)
       axios.get(`http://localhost:5000/user/menu/${this.name}/${this.foodName}`)
       .then(response=>{
+        console.log(response.data)
         this.orders = this.orders.concat(response.data)
         this.price += response.data[0].price
         this.badge += 1
@@ -76,6 +79,19 @@ export default {
       })
     },del(){
       this.orders = this.orders.slice(0,this.orders.length-1)
+    }, sendOrders(){
+      if(this.price >4){
+        this.path = "Cardrestaurant",
+        this.firstName = JSON.parse(localStorage.getItem("user"))
+         axios.get(`http://localhost:5000/user/${this.firstName}`)
+        .then(response=>{
+          localStorage.setItem("order", JSON.stringify({name : this.firstName, total : this.price, orders : this.orders }));
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+      }
+      
     }
     } 
 }

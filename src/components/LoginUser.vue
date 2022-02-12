@@ -96,7 +96,7 @@ export default {
       axios
         .post("http://localhost:5000/user/signupUser", user)
         .then((response) => {
-          localStorage.setItem(user, JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(this.firstName));
           response.data === "nice"
             ? (this.path = "Cardrestaurant")
             : (this.path = "LoginUser");

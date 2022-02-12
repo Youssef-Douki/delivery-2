@@ -22,10 +22,8 @@ export default {
 
     <!-- <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink> -->
     <SidebarLink to="/admin/menu" icon="fas fa-chart-bar">Insert your menu</SidebarLink>
-    <SidebarLink to="/admin/analyze" icon="fas fa-users">Analytique</SidebarLink>
     <SidebarLink to="/admin/order" icon="fas fa-image">Orders</SidebarLink>
-    <!-- <SidebarLink to="/admin/cart" icon="fas fa-image">cart</SidebarLink> -->
-    <SidebarLink to="/admin" icon="fas fa-image">Log out</SidebarLink>
+    <SidebarLink to="/admin" class="logOut" icon="fas fa-image">Log out</SidebarLink>
 
 
 
@@ -43,6 +41,11 @@ export default {
 .bottom {
   position: absolute;
   bottom: 10px;
+}
+.logOut {
+  position: absolute ;
+  bottom : 15px;
+  left: 12px;
 }
 .sidebar {
   color: white;

@@ -67,10 +67,17 @@ var getOneRestaurant = (req,res)=>{
 }
 
 var putInCart = (req,res)=>{
-  console.log(req.params)
+  
   db.query(`SELECT food_name , price  FROM menu WHERE food_name = '${req.params.foodName}' AND restaurant_id = (SELECT restaurant_id FROM  restaurant WHERE name = '${req.params.restaurantName}') `,(err,result)=>{
     err?res.status(500).send(err):res.send(result)
   })
 }
+
+var getOneUser = (req,res)=>{
+  console.log(req.params)
+  db.query(`SELECT * FROM  user where firstName = '${req.params.firstName}'`,(err,result)=>{
+    err?res.status(500).send(err):res.send(result)
+  })
+}
     
-    module.exports={getALLRestaurant,getOneRestaurant,signUpUser, loginUser,putInCart}
+    module.exports={getALLRestaurant,getOneRestaurant,signUpUser, loginUser,putInCart,getOneUser}
