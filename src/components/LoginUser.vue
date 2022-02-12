@@ -102,6 +102,12 @@ export default {
             : (this.path = "LoginUser");
         })
         .catch((error) => {
+          Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  footer: '<a href="">wrong password</a>'
+})
           this.errorMessage = error.message;
           console.error("There was an error!", error);
         });
@@ -121,6 +127,12 @@ export default {
             : (this.path = "LoginUser");
         })
         .catch((err) => {
+          Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  footer: '<a href="">wrong password</a>'
+})
           console.log(err);
         });
     },

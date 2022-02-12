@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 import axios from "axios";
 import FormData from "form-data";
 export default {
@@ -105,6 +106,12 @@ export default {
             : (this.path = "Login");
         })
         .catch((error) => {
+          Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Wrong password',
+  footer: '<a href="">enter a valid password</a>'
+})
           this.errorMessage = error.message;
           console.error("There was an error!", error);
         });
@@ -124,6 +131,12 @@ export default {
             : (this.path = "Login")
         })
         .catch((err) => {
+          Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  footer: '<a href="">wrong password</a>'
+})
           console.log(err);
         });
     },

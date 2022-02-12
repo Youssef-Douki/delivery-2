@@ -1,5 +1,15 @@
  <script>
  
+ export default {
+  data () {
+    return {
+      credentials: {
+        sandbox: '<sandbox client id>',
+        production: '<production client id>'
+      }
+    }
+  }
+}
  </script>
 
 
@@ -20,7 +30,8 @@
         <li class="clearfix"></li>
       </ul>
 
-      <a href="#" class="button">Buy</a>
+
+      <a class="button"  href="#" ></a>
     </div>
     <!--end shopping-cart -->
   </div>
