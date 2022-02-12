@@ -1,41 +1,53 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
 
-import Login from "../components/Login.vue"
-import Cardrestaurant from "../components/Cardrestaurant.vue"
-import AdminMenu from "../components/AdminMenu.vue"
-import Order from "../components/Order.vue"
-import Cart from "../components/Cart.vue"
+import Login from "../components/Login.vue";
+import Cardrestaurant from "../components/Cardrestaurant.vue";
+import AdminMenu from "../components/AdminMenu.vue";
+import Order from "../components/Order.vue";
+import LoginUser from "../components/LoginUser.vue";
+import MenuOfRestaurant from "../components/MenuOfRestaurant.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'Login',
-    component: Login
+    path: "/admin",
+    name: "Login",
+    component: Login,
   },
   {
-    path: '/menu',
-    name: 'menu',
-    component: AdminMenu
+    path: "/admin/menu",
+    name: "menu",
+    component: AdminMenu,
   },
   {
-    path: '/analyze',
-    name: 'Order',
-    component: Order
-  }, {
-    path: '/cart',
-    name: 'Cart',
-    component: Cart
+    path: "/admin/order",
+    name: "Order",
+    component: Order,
   },
-   {
-    path: '/user/menu',
-    name: 'Cardrestaurant',
-    component: Cardrestaurant
-  }
-]
+  //  {
+  //   path: '/user/cart',
+  //   name: 'Cart',
+  //   component: Cart
+  // },
+  {
+    path: "/user/menu",
+    name: "Cardrestaurant",
+    component: Cardrestaurant,
+  },
+  {
+    path: "/user/menu/:name",
+    name: "MenuOfRestaurant",
+    component: MenuOfRestaurant,
+  },
+  {
+    path: "/",
+    name: "LoginUser",
+    component: LoginUser,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

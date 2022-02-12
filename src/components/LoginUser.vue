@@ -1,4 +1,4 @@
-<template>
+<template id="all">
   <article class="cont">
     <div class="container" :class="{ 'sign-up-active': signUp }">
       <div class="overlay-container">
@@ -22,113 +22,109 @@
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your email for registration</div>
-        <input name="name" type="text" placeholder="Name" @input="change" />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          @change="change"
-        />
-        <input @change="changefile" name="picture" type="file" />
-        <router-link :to="{ name: path }"
-          ><button @click="signup">Sign Up</button></router-link
-        >
+        <div >
+          <input @change="change" name="firstName" type="text" placeholder="firstName" />
+          <input @change="change" name="lastName" type="text" placeholder="lastName" />
+          <input @change="change" name="email" type="text" placeholder="email" />
+          <input @change="change" name="password" type="password" placeholder="password" />
+          <input @change="change" name="phoneNumber" type="number" placeholder="phoneNumber" />
+          <input @change="change" name="profilePicture" type="file" placeholder="profilePicture" />
+        </div>
+        <router-link :to="{ name: path }"><button id="sign" @click="signup">Sign Up</button></router-link>
       </form>
       <form class="sign-in" action="#">
         <h2>Log In</h2>
         <div>Use your account</div>
-        <input
-          name="loginName"
-          type="text"
-          placeholder="Name"
-          @change="change"
-        />
-        <input
-          name="loginPassword"
-          type="password"
-          placeholder="Password"
-          @change="change"
-        />
-        <a href="#">Forgot your password?</a>
-        <router-link :to="{ name: path }"
-          ><button @click="logIn">Log in</button></router-link
-        >
+
+        <input @change="change" name="loginEmailUser" type="text" placeholder="Email" />
+        <input @change="change" name="loginPasswordUser" type="password" placeholder="Password" />
+
+        <label id="for">
+          <a href="#">Forgot your password?</a>
+        </label>
+        <router-link :to="{name:path}"><button @click="logIn">Log in</button></router-link>
       </form>
     </div>
   </article>
 </template>
 
 <script>
-import Swal from 'sweetalert2'
 import axios from "axios";
-import FormData from "form-data";
 export default {
   data: () => {
     return {
-      name: "",
+      firstName: "",
+      lastName: "",
+      email: "",
       password: "",
-      picture: "",
-      path: "Login",
+      phoneNumber: "",
+      profilePicture: "",
+      path: "LoginUser",
       signUp: false,
-      loginPassword: "",
-      loginName: "",
+      loginPasswordUser: "",
+      loginEmailUser: "",
     };
   },
   methods: {
     changefile(e) {
-      this.picture = e.target.files[0];
-      const form = new FormData();
-      form.append("file", this.picture);
+      this.pictureUser = e.target.files[0];
+      const formUser = new FormData();
+      form.append("file", this.pictureUser);
       form.append("upload_preset", "bpnhlkro");
       axios
-        .post("https://api.cloudinary.com/v1_1/dhgzyelo6/image/upload", form)
+        .post(
+          "https://api.cloudinary.com/v1_1/dhgzyelo6/image/upload",
+          formUser
+        )
         .then((response) => {
-          this.picture = response.data.secure_url;
+          this.pictureUser = response.data.secure_url;
         });
     },
     change(e) {
       this[e.target.name] = e.target.value;
     },
     signup() {
-      const admin = {
-        name: this.name,
+      const user = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
         password: this.password,
-        picture: this.picture,
+        phoneNumber : this.phoneNumber,
+        profilePicture: this.profilePicture,
       };
-
       // POST request using axios with error handling
       axios
-        .post("http://localhost:5000/admin/signup", admin)
+        .post("http://localhost:5000/user/signupUser", user)
         .then((response) => {
-          localStorage.setItem(admin, JSON.stringify(admin));
+          localStorage.setItem(user, JSON.stringify(user));
           response.data === "nice"
-            ? (this.path = "menu")
-            : (this.path = "Login");
+            ? (this.path = "Cardrestaurant")
+            : (this.path = "LoginUser");
         })
         .catch((error) => {
           Swal.fire({
   icon: 'error',
   title: 'Oops...',
-  text: 'Wrong password',
-  footer: '<a href="">enter a valid password</a>'
+  text: 'Something went wrong!',
+  footer: '<a href="">wrong password</a>'
 })
           this.errorMessage = error.message;
           console.error("There was an error!", error);
         });
     },
     logIn() {
-      const admin = {
-        loginName: this.loginName,
-        loginPassword: this.loginPassword,
+      const user = {
+        loginEmail: this.loginEmailUser,
+        loginPassword: this.loginPasswordUser,
       };
 
       axios
-        .post("http://localhost:5000/admin/login", admin)
+        .post("http://localhost:5000/user/loginUser", user)
         .then((response) => {
           console.log(response.data);
           response.data === "nice"
-            ? (this.path = "menu")
-            : (this.path = "Login")
+            ? (this.path = "Cardrestaurant")
+            : (this.path = "LoginUser");
         })
         .catch((err) => {
           Swal.fire({
@@ -148,6 +144,9 @@ export default {
 .cont {
   position: absolute;
   margin: 7% 25%;
+}
+#sign {
+  margin-top: 25px;
 }
 .container {
   position: relative;
@@ -172,7 +171,7 @@ export default {
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to bottom right, #e3e0db, #26b559);
+    background: linear-gradient(to bottom right, #e3e0db, #dc700fad);
     color: #fff;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
@@ -232,7 +231,7 @@ button {
 }
 button.invert {
   background-color: transparent;
-  border-color: rgba(189, 54, 54, 0.527);
+  border-color: rgba(90, 54, 189, 0.527);
 }
 form {
   position: absolute;
@@ -312,5 +311,14 @@ form {
     opacity: 1;
     z-index: 10;
   }
+}
+
+#Munich {
+  padding-bottom: 0.3px;
+  margin-bottom: -25px;
+}
+
+#for {
+  margin-top: 25px;
 }
 </style>

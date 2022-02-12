@@ -1,13 +1,13 @@
 <script>
-import SidebarLink from "../sidebar/SidebarLink"
-import { collapsed, toggleSidebar, sidebarWidth } from './state'
+import SidebarLink from "../sidebar/SidebarLink";
+import { collapsed, toggleSidebar, sidebarWidth } from "./state";
 export default {
   props: {},
   components: { SidebarLink },
   setup() {
-    return { collapsed, toggleSidebar, sidebarWidth }
-  }
-}
+    return { collapsed, toggleSidebar, sidebarWidth };
+  },
+};
 </script>
 
 <template>
@@ -20,12 +20,13 @@ export default {
       <span v-else>Restauranti</span>
     </h1>
 
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Insert restaurant</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">insert your menu</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">analytique</SidebarLink>
-    <SidebarLink to="/analyze" icon="fas fa-image">orders</SidebarLink>
-        <SidebarLink to="/cart" icon="fas fa-image">cart</SidebarLink>
+    <!-- <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink> -->
+    <SidebarLink to="/admin/menu" icon="fas fa-chart-bar">Insert your menu</SidebarLink>
+    <SidebarLink to="/admin/analyze" icon="fas fa-users">Analytique</SidebarLink>
+    <SidebarLink to="/admin/order" icon="fas fa-image">Orders</SidebarLink>
+    <!-- <SidebarLink to="/admin/cart" icon="fas fa-image">cart</SidebarLink> -->
+    <SidebarLink to="/admin" icon="fas fa-image">Log out</SidebarLink>
+
 
 
     <span
@@ -38,15 +39,14 @@ export default {
   </div>
 </template>
 
-
 <style scoped>
-.bottom{
+.bottom {
   position: absolute;
-  bottom : 10px
+  bottom: 10px;
 }
 .sidebar {
   color: white;
-  background-color:white;
+  background-color: #f0e5d5;
   float: left;
   position: fixed;
   z-index: 1;
@@ -61,8 +61,8 @@ export default {
 .sidebar h1 {
   height: 2.5em;
   font-weight: bold;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color:black
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: black;
 }
 .collapse-icon {
   position: absolute;

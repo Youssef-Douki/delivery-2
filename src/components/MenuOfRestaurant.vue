@@ -1,43 +1,122 @@
- <script>
- 
- export default {
-  data () {
-    return {
-      credentials: {
-        sandbox: '<sandbox client id>',
-        production: '<production client id>'
-      }
-    }
-  }
-}
- </script>
-
-
 <template>
+<!-- cart -->
   <div class="container">
+      <div class="container">
     <div class="shopping-cart">
       <div class="shopping-cart-header">
-        <i class="fa fa-shopping-cart cart-icon"></i
-        ><span class="badge">0</span>
+        <i class="fa fa-shopping-cart cart-icon"></i>
+        <span class="badge">{{this.badge}}</span>
         <div class="shopping-cart-total">
-          <span class="lighter-text">Total:</span>
+          <span class="lighter-text">Total:{{this.price}}.000 DT</span>
           <span class="main-color-text"></span>
         </div>
       </div>
-      <!--end shopping-cart-header -->
-
       <ul class="shopping-cart-items">
-        <li class="clearfix"></li>
+        <li class="clearfix">delivery fees : 4.000 DT</li>
+      </ul>
+      <ul v-for="order in orders" :key="order.food_name" class="shopping-cart-items">
+        <li class="clearfix">{{order.food_name}} : {{order.price}}.000 DT <button @click="del" class="btn"><i class="fa fa-trash"></i></button></li>
+        
       </ul>
 
-
-      <a class="button"  href="#" ></a>
+      <a href="#" class="button">Buy</a>
     </div>
-    <!--end shopping-cart -->
   </div>
-  <!--end container -->
+  
+    <!--end shopping-cart -->
+
+
+
+
+      <div class="cont" v-for="datas in data" :key="datas.food_name" >
+          <h3  class="food_name">{{datas.food_name}}</h3>
+          <h4 class="price">{{datas.price}}</h4> 
+          <button  @click="addToCart" :name="datas.food_name"   class="btnAdd">+</button>
+      </div>
+  </div>
 </template>
+
+<script> 
+import axios from "axios"
+export default {     
+    data(){
+      return {
+        name:"",
+        data :[],
+        foodName:"",
+        orders : [],
+        price : 4,
+        badge : 0
+
+      }
+    }, mounted(){
+        this.name = JSON.parse(localStorage.getItem("prop"))
+        console.log(this.name)
+        axios.get(`http://localhost:5000/user/menu/${this.name}`)
+        .then(response=>{
+            this.data = response.data
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+    },
+    methods:{
+     addToCart(e){
+      this.foodName = e.path[0].name ;
+      console.log(this.foodName,this.name)
+      axios.get(`http://localhost:5000/user/menu/${this.name}/${this.foodName}`)
+      .then(response=>{
+        this.orders = this.orders.concat(response.data)
+        this.price += response.data[0].price
+        this.badge += 1
+
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    },del(){
+      this.orders = this.orders.slice(0,this.orders.length-1)
+    }
+    } 
+}
+</script>
+
 <style lang="scss" scoped>
+.btn{
+background-color: #e64d4ded;
+  border: none;
+  color: white;
+  padding: 7px 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #fb0000ed;
+}
+.btnAdd{
+  font-size: 24px;
+    border-radius: 7px;
+    background-color: #b38147;
+    color: black;
+}
+.cont{
+ border-radius: 18px;
+    background-color: #8f7e6aa8;
+    margin-right: 30%;
+    margin-bottom: 20px;
+    padding: 8px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-evenly;
+}
+
+
+
+.food_name{
+    width: 36%;
+}
 $main-color: #6394f8;
 $light-text: #abb0be;
 
@@ -57,7 +136,7 @@ body {
 }
 
 .lighter-text {
-  color: #abb0be;
+  color: #232427;
 }
 
 .main-color-text {
@@ -98,7 +177,7 @@ nav {
 }
 
 .badge {
-  background-color: #6394f8;
+  background-color: #b38147;
   border-radius: 10px;
   color: white;
   display: inline-block;
@@ -172,14 +251,14 @@ nav {
 }
 
 .cart-icon {
-  color: #515783;
+  color: black;
   font-size: 24px;
   margin-right: 7px;
   float: left;
 }
 
 .button {
-  background: $main-color;
+  background: #b38147;
   color: white;
   text-align: center;
   padding: 12px;
@@ -190,7 +269,7 @@ nav {
   margin: 25px 0 15px 0;
 
   &:hover {
-    background: lighten($main-color, 3%);
+    background: lighten(#b38147, 3%);
   }
 }
 
