@@ -10,10 +10,9 @@ export default {
 };
 </script>
 <template>
-  <div id="nav">  
+  <div id="nav">
     <!-- <Sidebar/> -->
-    <router-view/>
-    
+    <router-view />
   </div>
 </template>
 
